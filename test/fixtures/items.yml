@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: items
+#
+#  id              :integer          not null, primary key
+#  packing_list_id :integer
+#  name            :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  packing_list_id: 1
+
+two:
+  packing_list_id: 1

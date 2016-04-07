@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: trips
+#
+#  id           :integer          not null, primary key
+#  user_id      :integer
+#  budget       :integer
+#  start_date   :date
+#  end_date     :date
+#  total_guests :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  budget: 1
+  start_date: 2016-04-07
+  end_date: 2016-04-07
+  total_guests: 1
+
+two:
+  user_id: 1
+  budget: 1
+  start_date: 2016-04-07
+  end_date: 2016-04-07
+  total_guests: 1
