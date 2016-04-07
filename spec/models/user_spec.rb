@@ -18,4 +18,9 @@ describe 'User' do
     @user3 = User.create(email: "joe@gmail.com")
     expect(@user3).to be_invalid
   end 
+
+  it 'is valid with a name' do 
+    @user4 = User.create(name: "Bob")
+    expect(@user4).to be_valid 
+  end
 end
