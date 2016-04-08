@@ -3,19 +3,23 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  name            :string
+#  last_name       :string
 #  email           :string
 #  age             :date
-#  password_digest :string
 #  location        :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  password_digest :string
+#  first_name      :string
 #
 
 class User < ActiveRecord::Base
+  has_secure_password
+  validates_uniqueness_of :email
+
   has_many :trips
   has_many :packing_lists
-  validates :name, presence: true
+  validates :first_name, presence: true
 
   def age
   end
