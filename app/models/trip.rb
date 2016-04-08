@@ -10,6 +10,8 @@
 #  total_guests :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  title        :string
+#
 
 class Trip < ActiveRecord::Base
   belongs_to :user
