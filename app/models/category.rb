@@ -9,4 +9,6 @@
 #
 
 class Category < ActiveRecord::Base
+  has_many :category_activities
+  has_many :activities, through: :category_activities
 end

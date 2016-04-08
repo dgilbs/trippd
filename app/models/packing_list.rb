@@ -11,4 +11,7 @@
 #
 
 class PackingList < ActiveRecord::Base
+  has_many :items
+  belongs_to :user
+  belong_to :trip
 end

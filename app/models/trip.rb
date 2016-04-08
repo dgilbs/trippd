@@ -16,4 +16,7 @@ class Trip < ActiveRecord::Base
   belongs_to :user
   has_many :trip_destinations
   has_many :destinations, through: :trip_destinations
+  has_many :trip_tags
+  has_many :tags, through: :trip_tags
+  has_many :packing_lists
 end

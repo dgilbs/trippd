@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407224841) do
+ActiveRecord::Schema.define(version: 20160408140921) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "destination_id"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160407224841) do
     t.integer  "min_group_size"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "link"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160407224841) do
     t.string   "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "continent"
   end
 
   create_table "items", force: :cascade do |t|
@@ -87,6 +89,7 @@ ActiveRecord::Schema.define(version: 20160407224841) do
     t.integer  "total_guests"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "title"
   end
 
   create_table "users", force: :cascade do |t|

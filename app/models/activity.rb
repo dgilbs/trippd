@@ -10,7 +10,12 @@
 #  min_group_size :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  link           :string
 #
 
 class Activity < ActiveRecord::Base
+  belongs_to :destination 
+  has_many :category_activities
+  has_many :categories, through: :category_activities
+
 end

@@ -10,4 +10,5 @@
 #
 
 class Item < ActiveRecord::Base
+  belongs_to :packing_list
 end

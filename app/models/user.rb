@@ -14,5 +14,6 @@
 
 class User < ActiveRecord::Base
   has_many :trips
+  has_many :packing_lists
   validates :name, presence: true
 end

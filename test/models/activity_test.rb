@@ -10,6 +10,7 @@
 #  min_group_size :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  link           :string
 #
 
 require 'test_helper'
