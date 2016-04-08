@@ -1,9 +1,3 @@
-Destination.clear
-CategoryActivity.clear
-Activity.clear
-Category.clear
-User.clear
-Trip.clear
 
 
 destinations = Destination.create([
