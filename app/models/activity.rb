@@ -18,4 +18,24 @@ class Activity < ActiveRecord::Base
   has_many :category_activities
   has_many :categories, through: :category_activities
 
+  def restaurants
+  end
+
+  def cultural
+  end
+
+  def music
+  end
+
+  def spa_fitness
+  end
+
+  def shopping
+  end
+
+  def active
+  end
+
+  
+
 end
