@@ -80,39 +80,39 @@ categories = Category.create([
   ])
   
 
-users = User.create([
-  {first_name: "Greta", last_name: "Moseson", email: "greta@email.com", location: "New York", date_of_birth: '1980-01-02'},
-  {first_name: "Joe", last_name: "Lehr", email: "joe@email.com", location: "Miami", date_of_birth: '1981-01-03'},
-  {first_name: "Danny", last_name: "Gilberg", email: "danny@email.com", location: "Toronto", date_of_birth: '1982-01-04'},
-  {first_name: "Mal", last_name: "Coppenrath", email: "mal@email.com", location: "Boston", date_of_birth: '1983-01-05'}
-  ])
+# users = User.create([
+#   {first_name: "Greta", last_name: "Moseson", email: "greta@email.com", location: "New York", date_of_birth: '1980-01-02'},
+#   {first_name: "Joe", last_name: "Lehr", email: "joe@email.com", location: "Miami", date_of_birth: '1981-01-03'},
+#   {first_name: "Danny", last_name: "Gilberg", email: "danny@email.com", location: "Toronto", date_of_birth: '1982-01-04'},
+#   {first_name: "Mal", last_name: "Coppenrath", email: "mal@email.com", location: "Boston", date_of_birth: '1983-01-05'}
+#   ])
 
-trips = Trip.create([
-  {title: "Mal's Trip to Portland", user_id: 4},
-  {title: "Joe's Trip to New York", user_id: 2},
-  {title: "Greta's Trip to Paris", user_id: 1},
-  {title: "Danny's Trip to Morocco", user_id: 3},
-  {title: "Mal's Trip to Meow", user_id: 4},
-  {title: "Joe's Trip to Meow", user_id: 2},
-  {title: "Greta's Trip to Meow", user_id: 1},
-  {title: "Danny's Trip to Meow", user_id: 3},
-  {title: "Danny's Trip to Woof", user_id: 3},
-  {title: "Mal's Trip to Woof", user_id: 4},
-  {title: "Joe's Trip to Woof", user_id: 2},
-  {title: "Greta's Trip to Woof", user_id: 1},
-  {title: "Danny's Trip to Hehe", user_id: 3},
-  {title: "Danny's Trip to Hehe", user_id: 2},
-  {title: "Danny's Trip to Hehe", user_id: 4},
-  {title: "Danny's Trip to Hehe", user_id: 3}
-  ])
+# trips = Trip.create([
+#   {title: "Mal's Trip to Portland", user_id: 4},
+#   {title: "Joe's Trip to New York", user_id: 2},
+#   {title: "Greta's Trip to Paris", user_id: 1},
+#   {title: "Danny's Trip to Morocco", user_id: 3},
+#   {title: "Mal's Trip to Meow", user_id: 4},
+#   {title: "Joe's Trip to Meow", user_id: 2},
+#   {title: "Greta's Trip to Meow", user_id: 1},
+#   {title: "Danny's Trip to Meow", user_id: 3},
+#   {title: "Danny's Trip to Woof", user_id: 3},
+#   {title: "Mal's Trip to Woof", user_id: 4},
+#   {title: "Joe's Trip to Woof", user_id: 2},
+#   {title: "Greta's Trip to Woof", user_id: 1},
+#   {title: "Danny's Trip to Hehe", user_id: 3},
+#   {title: "Danny's Trip to Hehe", user_id: 2},
+#   {title: "Danny's Trip to Hehe", user_id: 4},
+#   {title: "Danny's Trip to Hehe", user_id: 3}
+#   ])
   
 
-trip_desintations = TripDestination.create([
-  {trip_id: 1, destination_id: 1},
-  {trip_id: 2, destination_id: 2},
-  {trip_id: 3, destination_id: 3},
-  {trip_id: 4, destination_id: 4}
-  ])
+# trip_desintations = TripDestination.create([
+#   {trip_id: 1, destination_id: 1},
+#   {trip_id: 2, destination_id: 2},
+#   {trip_id: 3, destination_id: 3},
+#   {trip_id: 4, destination_id: 4}
+#   ])
 
 
 

@@ -23,8 +23,14 @@ class User < ActiveRecord::Base
   has_many :items, through: :packing_lists
 
 
+  def current_trip
+    if !self.current_trip_id.nil?
+      Trip.find(self.current_trip_id)
+    end
+  end
+
   def age
-    age = Date.today.year - self.date_of_birth.year
+    age = Date.day.year - self.date_of_birth.year
     age = age - 1 if (
          self.date_of_birth.month >  Date.today.month or 
         (self.date_of_birth.month >= Date.today.month and self.date_of_birth.day > Date.today.day)

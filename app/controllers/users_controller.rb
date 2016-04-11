@@ -46,6 +46,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def change_current_trip
+    current_user.current_trip_id = params[:id]
+    current_user.save
+
+    redirect_to destinations_path
+  end
+
   private
 
   def user_params

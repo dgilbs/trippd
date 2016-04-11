@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new', as: 'login'
   get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/destinations/:id/add_trip', to: 'trips#add_trip', as: 'add_trip'
+  get '/change_current_trip/:id', to: 'users#change_current_trip', as: 'change_current_trip'
 
   resources :trips
   resources :users

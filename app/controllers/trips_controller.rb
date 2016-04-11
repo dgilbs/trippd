@@ -27,6 +27,9 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     if @trip.save 
+      current_user.current_trip_id = @trip.id
+      current_user.save
+      
       redirect_to @trip
     else
       render :new
