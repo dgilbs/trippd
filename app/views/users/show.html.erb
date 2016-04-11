@@ -5,12 +5,14 @@
 
 <p>Past Trips: <%=@user.past_trips.count%></p>
 
+<% if !@user.cities_visited.nil? %>
 <h3>Cities Visited</h3>
 <ul>
 <% @user.cities_visited.each do |city|%>
 <li><%=city%></li>
 <%end%>
 </ul>
+<%end%>
 
 <h3>Countries Visited</h3>
 <ul>
