@@ -1,13 +1,6 @@
 <h2>ahh... the lovely <%= @destination.city %> 
-<form action="/destinations/<%= @destination.id%>/add_trip" method="GET">
-<label for="select_trip"> Add Destination to Trip: </label>
-    <select id="select_list" name="select_list"> 
-    <%current_user.trips.each do |trip|%>
-      <% if !trip.destinations.include?(@destination) %>
-      <option value=<%=trip.id%>><%=trip.title%></option><%end%>
-      <%end%>
-      </select>
-      <input type="submit">
+<form action="/destinations/<%= @destination.id%>/add_destination" method="GET">
+ <button type="submit" class='add-destination-btn'> + </button>
 </form>
 </h2> 
 

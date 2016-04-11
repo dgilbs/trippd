@@ -59,10 +59,12 @@ class TripsController < ApplicationController
     redirect_to '/trips'
   end
 
-  def add_trip
-    @trip = Trip.find(params[:select_list])
+  def add_destination
+    @trip = Trip.find(current_user.current_trip_id)
     @destination = Destination.find(params[:id])
-    @trip.destinations << @destination
+    @trip.destinations << @destination if !(@trip.destinations.include?(@destination))
+    @trip.save
+
     redirect_to destination_path(@destination)
   end
 

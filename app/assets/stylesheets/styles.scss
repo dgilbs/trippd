@@ -65,6 +65,10 @@ h3 {
 
 }
 
+form {
+  display: inline;
+}
+
 .trip-btn {
   font-weight: 700;
   background: $sun;
@@ -74,6 +78,18 @@ h3 {
   margin: 10px 10px;
   border: none;
   border-radius: 5px;
+}
+
+.add-destination-btn {
+  font-weight: 700;
+  background: $flower;
+  font-size: 15px;
+  padding: 5px 10px;
+  margin: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  display: inline;
+  color: $snow;
 }
 
 a {

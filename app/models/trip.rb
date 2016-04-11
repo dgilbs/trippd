@@ -26,6 +26,7 @@ class Trip < ActiveRecord::Base
   # def checks_doesnt_conflict_with_existing_trips 
   # end
 
+
   def end_date_is_after_start_date
     return if end_date.blank? || start_date.blank?
 
