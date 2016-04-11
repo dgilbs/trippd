@@ -64,9 +64,25 @@ class User < ActiveRecord::Base
    if !self.past_trips.nil? 
      arr = self.past_trips.map do |trip|
       trip.destinations if !trip.destinations.nil?
-      end
-     arr[0]
+      end.compact
+     arr.flatten
    end
+  end
+
+  def all_city_visits
+    if !self.destinations_visited.nil?
+      self.destinations_visited.map do |dest|
+        dest.city 
+      end.compact
+    end
+  end
+
+  def all_country_visits
+    if !self.destinations_visited.nil?
+      self.destinations_visited.map do |dest|
+        dest.country
+      end.compact
+    end    
   end
 
   def cities_visited
