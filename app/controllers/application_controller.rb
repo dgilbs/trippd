@@ -12,6 +12,12 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
+  
+  # def current_trip
+  #   @current_user.trips.last 
+  # end
+  # helper_method :current_trip,
+  
 
   def authorize
     redirect_to login_url, alert: "Not authorized" if current_user.nil?

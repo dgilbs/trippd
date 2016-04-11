@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new', as: 'signup'
   get '/login', to: 'sessions#new', as: 'login'
   get '/logout', to: 'sessions#destroy', as: 'logout'
+  get '/destinations/:id/add_trip', to: 'trips#add_trip', as: 'add_trip'
 
   resources :trips
   resources :users
