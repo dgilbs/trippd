@@ -11,12 +11,19 @@
   <div class="navbar">
     
     <ul>
+
     <% if current_user %>
       <li>Logged in as <%= current_user.first_name %></li>
       <li><%= link_to "Log Out", logout_path %></li>
+        <%if current_user.trips.any? %>
+
+        <li><%=link_to "Editing #{current_user.trips.last.title}", trip_path(current_user.trips.last)%></li>
+        <li><%=link_to "Change Trip", user_path(current_user)%></li>
+        <%end%>
     <% else %>
       <li><%= link_to "Sign Up", signup_path %></li>
       <li><%= link_to "Log In", login_path %></li>
+
     <% end %>
       <li><%= link_to "View Trips", trips_path%></li>
       <li><%= link_to "Browse Destinations", destinations_path%></li>

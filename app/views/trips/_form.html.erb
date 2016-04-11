@@ -9,6 +9,7 @@
     <%= f.number_field :total_guests %></p>
   <p><%= f.label :budget %>
     <%= f.number_field :budget %></p>
+  <p><%= f.hidden_field :user_id, value: current_user.id  %></p>
 
   <%= f.submit %>
 

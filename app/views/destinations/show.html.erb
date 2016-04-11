@@ -1,4 +1,4 @@
-<h2>ahh... the lovely <%= @destination.city %></h2>
+<h2>ahh... the lovely <%= @destination.city %> <button class = "plus-sign-btn"> Add Destination to Trip </button></h2> 
 
 <div class="activities-by-destination">
   <h3>Restaurants</h3>
@@ -40,42 +40,8 @@
   <h3>Shopping</h3>
     <ul>
       <% @shopping_activities.each do |shopping| %>
-        <li> <%= link_to shopping.name, shopping.link %></li>
+        <li> <%= link_to shopping.name, shopping.link %> <button class = "plus-sign-btn"> + </button> </li>
       <% end %>
     </ul>
 </div>
 
-
-
-<!--  <table>
-  <tr>
-    <th><h3>Restaurants </h3></th>
-    <th><h3>Shopping</h3></th>
-    <th><h3>Active</h3></th>
-    <th><h3>Spa/Fitness</h3></th>
-    <th><h3>Music</h3></th>
-   </tr>
-
-   <% @restaurants.each do |restaurant| %>
-    <% @shopping_activities.each do |store| %>
-      <% @active_activities.each do |active| %>
-        <% @spa_fitness_activities.each do |spa_fitness| %>
-          <% @music_activities.each do |music| %>
-
-          <tr>
-            <td><%= link_to restaurant.name, restaurant.link %></td>
-            <td><%= link_to store.name, store.link %></td>
-            <td><%= link_to active.name, active.link %></td>
-            <td><%= link_to spa_fitness.name, spa_fitness.link %></td>
-            <td><%= link_to music.name, music.link %></td>
-          </tr>
-
-          <% end %>
-        <% end %>
-      <% end %>
-    <% end %>
-  <% end %>
-
-
-
-</table> -->
