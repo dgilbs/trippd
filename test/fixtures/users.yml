@@ -5,11 +5,11 @@
 #  id              :integer          not null, primary key
 #  last_name       :string
 #  email           :string
-#  age             :date
+#  date_of_birth   :date
+#  password_digest :string
 #  location        :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  password_digest :string
 #  first_name      :string
 #
 
