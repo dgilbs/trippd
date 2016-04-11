@@ -35,6 +35,6 @@ class DestinationsController < ApplicationController
   end
 
   def destination_params
-    params.require(:destination).permit(:city, :state, :country, :continent)
+    params.require(:destination).permit(:city, :state, :country, :continent, activity_ids:[])
   end
 end
