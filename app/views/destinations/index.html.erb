@@ -1,0 +1,5 @@
+<h2>Where do you want to go?</h2>
+
+<% @destinations.each do |destination| %>
+  <button class="trip-btn"><%= link_to destination.city, destination_path(destination)%></button>
+<% end %>

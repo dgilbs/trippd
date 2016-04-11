@@ -2,43 +2,49 @@
 
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
-  <div class="error_messages">
-  <h2>Form is invalid</h2>
-  <ul>
-  <% @user.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
-  <% end %>
-  </ul>
-  </div>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 
   <div class="field">
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
   </div>
+
   <div class="field">
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
   </div>
+
   <div class="field">
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
   </div>
+
   <div class="field">
-  <%= f.label :location %>
-  <%= f.text_field :location %>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
   </div>
+
   <div class="field">
-  <%= f.label :date_of_birth %>
-  <%= f.date_field :date_of_birth %>
+    <%= f.label :date_of_birth %>
+    <%= f.date_field :date_of_birth %>
   </div>
+
   <div class="field">
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
   </div>
+  
   <div class="field">
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
   </div>
 
   <div class="submit"><%= f.submit %></div>
