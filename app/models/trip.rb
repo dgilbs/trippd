@@ -28,12 +28,7 @@ class Trip < ActiveRecord::Base
   # def checks_start_date_before_end_date
   # end
 
-  def duration
-  end
-
-  def budget_status
-    # calculates sum of activity costs and compares to budget
-  end
+  
 
 
 

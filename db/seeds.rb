@@ -10,6 +10,21 @@ destinations = Destination.create([
   {city: "Cartagena", country: "Columbia", continent: "South America"}
   ])
 
+trip_destinations = TripDestination.create([
+  {trip_id: 1, destination_id: 1},
+  {trip_id: 2, destination_id: 2},
+  {trip_id: 3, destination_id: 2},
+  {trip_id: 4, destination_id: 2},
+  {trip_id: 5, destination_id: 2},
+  {trip_id: 6, destination_id: 2},
+  {trip_id: 7, destination_id: 2},
+  {trip_id: 8, destination_id: 3},
+  {trip_id: 9, destination_id: 3},
+  {trip_id: 10, destination_id: 3},
+  {trip_id: 11, destination_id: 3},
+  {trip_id: 12, destination_id: 3},
+  {trip_id: 13, destination_id: 3},
+  ])
 
 category_activities = CategoryActivity.create([
   {activity_id: 1, category_id: 2},
@@ -66,18 +81,29 @@ categories = Category.create([
   
 
 users = User.create([
-  {name: "Greta", email: "greta@email.com", location: "New York", age: '1980-01-02'},
-  {name: "Joe", email: "joe@email.com", location: "Miami", age: '1981-01-03'},
-  {name: "Danny", email: "danny@email.com", location: "Toronto", age: '1982-01-04'},
-  {name: "Mal", email: "mal@email.com", location: "Boston", age: '1983-01-05'}
+  {first_name: "Greta", last_name: "Moseson", email: "greta@email.com", location: "New York", age: '1980-01-02'},
+  {first_name: "Joe", last_name: "Lehr", email: "joe@email.com", location: "Miami", age: '1981-01-03'},
+  {first_name: "Danny", last_name: "Gilberg", email: "danny@email.com", location: "Toronto", age: '1982-01-04'},
+  {first_name: "Mal", last_name: "Coppenrath", email: "mal@email.com", location: "Boston", age: '1983-01-05'}
   ])
-
 
 trips = Trip.create([
   {title: "Mal's Trip to Portland", user_id: 4},
   {title: "Joe's Trip to New York", user_id: 2},
   {title: "Greta's Trip to Paris", user_id: 1},
-  {title: "Danny's Trip to Morocco", user_id: 3}
+  {title: "Danny's Trip to Morocco", user_id: 3},
+  {title: "Mal's Trip to Meow", user_id: 4},
+  {title: "Joe's Trip to Meow", user_id: 2},
+  {title: "Greta's Trip to Meow", user_id: 1},
+  {title: "Danny's Trip to Meow", user_id: 3},
+  {title: "Danny's Trip to Woof", user_id: 3},
+  {title: "Mal's Trip to Woof", user_id: 4},
+  {title: "Joe's Trip to Woof", user_id: 2},
+  {title: "Greta's Trip to Woof", user_id: 1},
+  {title: "Danny's Trip to Hehe", user_id: 3},
+  {title: "Danny's Trip to Hehe", user_id: 2},
+  {title: "Danny's Trip to Hehe", user_id: 4},
+  {title: "Danny's Trip to Hehe", user_id: 3}
   ])
   
 
