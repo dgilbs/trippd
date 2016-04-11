@@ -3,9 +3,11 @@
 <label for="select_trip"> Add Destination to Trip: </label>
     <select id="select_list" name="select_list"> 
     <%current_user.trips.each do |trip|%>
-    <option value=<%=trip.id%>><%=trip.title%></option>
-    <%end%>
-    <input type="submit">
+      <% if !trip.destinations.include?(@destination) %>
+      <option value=<%=trip.id%>><%=trip.title%></option><%end%>
+      <%end%>
+      </select>
+      <input type="submit">
 </form>
 </h2> 
 
