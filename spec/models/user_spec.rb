@@ -23,7 +23,7 @@ describe 'User' do
   end
 
   it 'can have many trips' do 
-    @user2 = User.create(first_name: "Joe")
+    @user2 = User.create(first_name: "Joe", password_digest: "1234")
     @trip1 = @user2.trips.create
     @trip2 = @user2.trips.create
     expect(@user2.trips.count).to eq(2)
@@ -35,7 +35,7 @@ describe 'User' do
   end 
 
   it 'is valid with a name' do 
-    @user4 = User.create(first_name: "Bob")
+    @user4 = User.create(first_name: "Bob", email: "bob@bob.com", password_digest: "1234")
     expect(@user4).to be_valid 
   end
 end
