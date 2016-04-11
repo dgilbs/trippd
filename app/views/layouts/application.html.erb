@@ -7,20 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if current_user %>
-    Logged in as <%= current_user.first_name %>
-    <%= link_to "Log Out", logout_path %>
-  <% else %>
-    <%= link_to "Sign Up", signup_path %>
-    <%= link_to "Log In", login_path %>
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+  <div class="navbar">
+    
+    <ul>
+    <% if current_user %>
+      <li>Logged in as <%= current_user.first_name %></li>
+      <li><%= link_to "Log Out", logout_path %></li>
+    <% else %>
+      <li><%= link_to "Sign Up", signup_path %></li>
+      <li><%= link_to "Log In", login_path %></li>
+    <% end %>
+      <li><%= link_to "View Trips", trips_path%></li>
+
+      <li><%= link_to "Browse Destinations", destinations_path%></li>
+    </ul>
 
     <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, id: "flash_#{name}" %>
+ 
   <% end %>
-  <% end %>
+  </div>
 <!-- our nav bar -->
-
+<div class="container">
 <%= yield %>
+</div>
 
 <!-- our footer -->
 

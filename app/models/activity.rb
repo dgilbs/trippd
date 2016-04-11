@@ -18,22 +18,29 @@ class Activity < ActiveRecord::Base
   has_many :category_activities
   has_many :categories, through: :category_activities
 
-  def restaurants
+  def self.restaurants
+    joins(:categories).where(:categories =>{name: "Restaurants"})
   end
 
-  def cultural
+  def self.cultural
+    joins(:categories).where(:categories =>{name: "Cultural"})
   end
 
-  def music
+  def self.music
+    joins(:categories).where(:categories =>{name: "Music"})
   end
 
-  def spa_fitness
+  def self.spa_fitness
+    joins(:categories).where(:categories =>{name: "Spa/Fitness"})
   end
 
-  def shopping
+  def self.shopping
+    joins(:categories).where(:categories =>{name: "Shopping"})
+
   end
 
-  def active
+  def self.active
+    joins(:categories).where(:categories =>{name: "Active"})
   end
 
   
