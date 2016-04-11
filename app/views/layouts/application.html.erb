@@ -2,11 +2,9 @@
 <html>
 <head>
   <title>Trippd</title>
-  <style>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  </style>
 </head>
 <body>
 <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
@@ -21,7 +19,6 @@
       <li><%= link_to "Log In", login_path %></li>
     <% end %>
       <li><%= link_to "View Trips", trips_path%></li>
-
       <li><%= link_to "Browse Destinations", destinations_path%></li>
     </ul>
 

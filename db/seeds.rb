@@ -81,10 +81,10 @@ categories = Category.create([
   
 
 users = User.create([
-  {first_name: "Greta", last_name: "Moseson", email: "greta@email.com", location: "New York", age: '1980-01-02'},
-  {first_name: "Joe", last_name: "Lehr", email: "joe@email.com", location: "Miami", age: '1981-01-03'},
-  {first_name: "Danny", last_name: "Gilberg", email: "danny@email.com", location: "Toronto", age: '1982-01-04'},
-  {first_name: "Mal", last_name: "Coppenrath", email: "mal@email.com", location: "Boston", age: '1983-01-05'}
+  {first_name: "Greta", last_name: "Moseson", email: "greta@email.com", location: "New York", date_of_birth: '1980-01-02'},
+  {first_name: "Joe", last_name: "Lehr", email: "joe@email.com", location: "Miami", date_of_birth: '1981-01-03'},
+  {first_name: "Danny", last_name: "Gilberg", email: "danny@email.com", location: "Toronto", date_of_birth: '1982-01-04'},
+  {first_name: "Mal", last_name: "Coppenrath", email: "mal@email.com", location: "Boston", date_of_birth: '1983-01-05'}
   ])
 
 trips = Trip.create([
