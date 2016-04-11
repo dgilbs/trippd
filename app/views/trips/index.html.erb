@@ -1,3 +1,12 @@
+<br>
+<div class="container" style="text-align:center";>
+<%= button_to "Create new trip", "/trips/new", :class => "button", :method => :get %><br>
+<br>
 <% @trips.each do |trip| %>
-<button class="trip-btn"><%= trip.title %></button><br>
+  <% if trip.start_date != nil && trip.end_date != nil && trip.start_date > DateTime.now.to_date %>
+  <button class="trip-btn"><%= trip.title %></button><br>
+  <% end %>
+<br>
 <% end %>
+<% end %>
+</div>

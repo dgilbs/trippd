@@ -20,16 +20,57 @@ class Trip < ActiveRecord::Base
   has_many :trip_tags
   has_many :tags, through: :trip_tags
   has_many :packing_lists
-  # validate :checks_doesnt_conflict_with_existing_trips, :checks_start_date_before_end_date
+  # validate :checks_doesnt_conflict_with_existing_trips
+  validate :end_date_is_after_start_date
 
   # def checks_doesnt_conflict_with_existing_trips 
   # end
 
-  # def checks_start_date_before_end_date
-  # end
+  def end_date_is_after_start_date
+    return if end_date.blank? || start_date.blank?
 
-  
+    if end_date < start_date
+      errors.add(:end_date, "cannot be before the start date")
+      #jquery alert on form that end date cannot be before start date
+     end 
+  end
 
+  def duration
+    (self.end_date - self.start_date).to_i
+    #returns number of days
+  end
 
+  def days_til_trip
+    @days_til = (self.start_date - DateTime.now.to_date).to_i
+  end
+
+  def budget_to_range
+    @daily_cost = (self.budget / self.duration)
+    # calculate cost per day
+    if @daily_cost < 50 
+      self.range = "$"
+    elsif @daily_cost > 50 && @daily_cost < 100
+      self.range = "$$"
+    elsif @daily_cost > 100 && @daily_cost < 150
+      self.range = "$$$"
+    else 
+      self.range = "$$$$"
+    end
+    # $ = $50 or less, $$ = 50-100, $$$ = $100-150, $$$$ = $200+
+    # set variable, or maybe we should add another attribute (range?)
+    # to trip that we can set (ex. self.range = $, etc.) 
+  end
+
+  def cost_per_person
+    @cost_per = (self.budget / self.total_guests)
+  end
+
+  def budget_status
+    # self.joins(:trip_destinations).where(trip_id = self.id)
+
+    activities = self.destinations.activities
+    # sum(self.activities.cost)
+    # calculates sum of activity costs and compares to budget
+  end
 
 end
