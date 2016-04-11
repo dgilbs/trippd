@@ -1,1 +1,13 @@
-<%= @trip.title %>
+<strong><%= @trip.title %></strong><br>
+<%= @trip.start_date.strftime("%A, %b %d, %Y")%> - <%= @trip.end_date.strftime("%A, %b %d, %Y") %><br>
+Duration: <%= @trip.duration %> days<br>
+
+
+
+
+
+
+
+
+
+<small>Trip created on <%= @trip.created_at.strftime("%A, %d %b %Y")%></small>

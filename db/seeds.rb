@@ -81,9 +81,12 @@ trips = Trip.create([
   ])
   
 
-
-
-
+trip_desintations = TripDestination.create([
+  {trip_id: 1, destination_id: 1},
+  {trip_id: 2, destination_id: 2},
+  {trip_id: 3, destination_id: 3},
+  {trip_id: 4, destination_id: 4}
+  ])
 
 
 

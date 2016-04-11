@@ -1,3 +1,16 @@
+<br>
+<%= button_to("Create a new trip", "/trips/new", method: "new") %>
+
 <% @trips.each do |trip| %>
-<%= trip.title %><br>
+  <% if trip.start_date != nil && trip.end_date != nil && trip.start_date > DateTime.now.to_date %>
+  <strong><%= trip.title %></strong><br>
+
+
+  <% if trip.budget != nil %>
+  Budget: $<%= trip.budget %><br>
+  <% end %>
+
+<%= trip.days_til_trip %> days until your trip<br>
+<br>
+<% end %>
 <% end %>

@@ -2,18 +2,22 @@
 <html>
 <head>
   <title>Trippd</title>
+  <style>
+  html { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #e6ffff;}
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  </style>
 </head>
 <body>
   <% if current_user %>
     Logged in as <%= current_user.first_name %>
     <%= link_to "Log Out", logout_path %>
+    <br>
   <% else %>
     <%= link_to "Sign Up", signup_path %>
     <%= link_to "Log In", login_path %>
-
+    <br>
     <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, id: "flash_#{name}" %>
   <% end %>
