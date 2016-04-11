@@ -26,3 +26,5 @@ production:
   <<: *default
   database: db/production
   adapter: postgresql 
+
+

@@ -1,14 +1,14 @@
-<h2> Sign Up </h2>
+<h2> Edit Your Profile </h2>
 
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
   <div class="error_messages">
   <h2>Form is invalid</h2>
-  <ul>
-  <% @user.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
-  <% end %>
-  </ul>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
   </div>
   <% end %>
 
@@ -26,19 +26,17 @@
   </div>
   <div class="field">
   <%= f.label :location %>
-  <%= f.text_field :location %>
+  <%= f.text_field :location%>
   </div>
   <div class="field">
   <%= f.label :date_of_birth %>
   <%= f.date_field :date_of_birth %>
   </div>
   <div class="field">
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= f.hidden_field :password %>
   </div>
   <div class="field">
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+  <%= f.hidden_field :password_confirmation %>
   </div>
 
   <div class="submit"><%= f.submit %></div>

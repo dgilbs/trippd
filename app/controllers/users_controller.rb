@@ -5,11 +5,11 @@
 #  id              :integer          not null, primary key
 #  last_name       :string
 #  email           :string
-#  age             :date
+#  date_of_birth   :date
+#  password_digest :string
 #  location        :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  password_digest :string
 #  first_name      :string
 #
 
@@ -30,12 +30,26 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to @user
+    else
+      render :edit
+    end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :age, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :date_of_birth, :location, :password, :password_confirmation)
   end 
 
 end

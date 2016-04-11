@@ -5,11 +5,11 @@
 #  id              :integer          not null, primary key
 #  last_name       :string
 #  email           :string
-#  age             :date
+#  date_of_birth   :date
+#  password_digest :string
 #  location        :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  password_digest :string
 #  first_name      :string
 #
 
@@ -18,12 +18,12 @@ require 'rails_helper'
 describe 'User' do 
 
   it "can be created" do 
-    @user1 = User.create(name: "Todd")
-    expect(@user1.name).to eq("Todd")
+    @user1 = User.create(first_name: "Todd")
+    expect(@user1.first_name).to eq("Todd")
   end
 
   it 'can have many trips' do 
-    @user2 = User.create(name: "Joe")
+    @user2 = User.create(first_name: "Joe")
     @trip1 = @user2.trips.create
     @trip2 = @user2.trips.create
     expect(@user2.trips.count).to eq(2)
@@ -35,7 +35,7 @@ describe 'User' do
   end 
 
   it 'is valid with a name' do 
-    @user4 = User.create(name: "Bob")
+    @user4 = User.create(first_name: "Bob")
     expect(@user4).to be_valid 
   end
 end
