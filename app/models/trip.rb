@@ -79,9 +79,9 @@ class Trip < ActiveRecord::Base
   end
 
   def budget_status
-    # self.joins(:trip_destinations).where(trip_id = self.id)
-
-    activities = self.destinations.activities
+    @budget = self.budget_to_range
+    
+    # activities = self.destinations.activities
     # sum(self.activities.cost)
     # calculates sum of activity costs and compares to budget
   end
