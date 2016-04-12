@@ -1,0 +1,50 @@
+Most Popular Destination(s):
+<ul>
+<% @most_popular_destinations.each do |destination| %>
+<li><%= link_to(destination.city, destination_path(destination)) %></li> 
+<% end %>
+</ul>
+
+<% if @thirties > 0 %>
+<p> 
+  Average budget for people born bw 1930 and 1939: $<%= @thirties %>.
+ <% end %> 
+</p>
+
+<% if @forties > 0 %>
+<p>
+Average budget for people born bw 1940 and 1949: $<%= @seventies %>.
+<% end %>
+</p>
+
+<% if @fifties > 0 %>
+<p>
+Average budget for people born bw 1950 and 1959: $<%= @seventies %>.
+<% end %>
+</p>
+
+
+<% if @sixties > 0 %>
+<p>
+Average budget for people born bw 1960 and 1969: $<%= @seventies %>.
+<% end %>
+</p>
+
+<% if @seventies > 0 %>
+<p>
+Average budget for people born bw 1970 and 1979: $<%= @seventies %>.
+<% end %>
+</p>
+
+<% if @eighties > 0 %>
+<p>
+Average budget for people born bw 1980 and 1989: $<%= @seventies %>.
+<% end %>
+</p>
+
+<% if @nineties > 0 %>
+<p>
+Average budget for people born bw 1990 and 1999: $<%= @seventies %>.
+<% end %>
+</p>
+

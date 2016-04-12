@@ -17,21 +17,21 @@ class Destination < ActiveRecord::Base
   has_many :activities
 
 
-  def self.most_popular_destination
-    mp = self.handles_tie_for_most_popular
-    if mp.length == 1
-      mp[0]
-    else
-      array = mp.map { |d| d }
-      #returns an array
-    end
-  end
+  # def self.most_popular_destination
+  #   mp = self.handles_tie_for_most_popular
+  #   if mp.length == 1
+  #     mp[0]
+  #   else
+  #     array = mp.map { |d| d }
+  #     #returns an array
+  #   end
+  # end
 
  def self.handles_tie_for_most_popular
   most_popular = TripDestination.group(:destination_id).count
   final = most_popular.map { |k, v| k if v == most_popular.values.max }
     final.compact.map do |id|
-      Destination.find(id).city
+      Destination.find(id)
     end
   end
 
