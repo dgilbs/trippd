@@ -161,7 +161,6 @@ class User < ActiveRecord::Base
     array.last(3)
   end
 
-
   def self.thirties_avg_budget
     budget = []
     self.where(date_of_birth: ("1930-01-01" .. "1939-12-31")).each do |user|
@@ -273,6 +272,13 @@ class User < ActiveRecord::Base
         else
           budget.inject(0){|sum,x| sum + x } / budget.length
     end
+
+  def world_traveler
+    self.countries_visited.length > 10
+  end
+
+  def city_hopper
+
   end
 
 end

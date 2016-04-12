@@ -69,12 +69,27 @@ class Trip < ActiveRecord::Base
     @cost_per = (self.budget / self.total_guests)
   end
 
-  def budget_status
-    # self.joins(:trip_destinations).where(trip_id = self.id)
+  def most_common_tag
+    self.tags.group('tags.name').order('count_id desc').limit(1).count('id')
+    #returns key, value pair ({"budget"=>3}), would be good for chartkick
+  end
 
-    activities = self.destinations.activities
+  def top_three_tags
+    self.tags.group('tags.name').order('count_id desc').limit(3).count('id')
+  end
+
+  def budget_status
+    @budget = self.budget_to_range
+    
+    # activities = self.destinations.activities
     # sum(self.activities.cost)
     # calculates sum of activity costs and compares to budget
+  end
+
+  def delete_dependent_activities(dest)
+    self.activities.each do |activity|
+      self.activities.delete(activity) if activity.destination == dest 
+    end
   end
 
 end

@@ -58,4 +58,13 @@ describe "#budget_to_range" do
   end 
 end
 
+describe "#cost_per_person" do 
+  trip = Trip.create(start_date: "2016-01-12", end_date: "2016-01-17", budget: 100, total_guests: 4)
+  context 'calculates cost per person from budget' do 
+    it 'shows cost per person' do
+      expect(trip.cost_per_person).to eq(25)
+    end
+  end 
+end
+
 end

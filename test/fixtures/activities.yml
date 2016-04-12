@@ -5,7 +5,7 @@
 #  id             :integer          not null, primary key
 #  destination_id :integer
 #  name           :string
-#  cost           :integer
+#  cost           :string
 #  rigor          :integer
 #  min_group_size :integer
 #  created_at     :datetime         not null

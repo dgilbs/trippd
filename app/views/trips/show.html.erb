@@ -6,6 +6,46 @@ Duration: <%= @trip.duration %> days<br>
 </p>
 
 
+<button class='edit-trip-btn'>
+<%=link_to "Edit This Trip", edit_trip_path(@trip)%>
+</button>
+<br><br>
+
+<%if @trip.destinations.any?%>
+This trip will include stops in:
+<ul>
+<%@trip.destinations.each do |destination|%>
+<li><form action="/destinations/<%=destination.id%>/remove_destination" method="DELETE">
+ <button type="submit" class='remove-destination-btn'> <input type = "hidden" name="trip_id" value = "<%=@trip.id%>">X</button>
+ <%=link_to destination.city, destination%>
+</form></li>
+<%end%>
+</ul>
+<%end%>
+
+<% if @trip.activities.any? %>
+Activities You Have Planned:
+<ul>
+<%@trip.activities.each do |activity|%>
+<li><form action="/trips/<%=activity.id%>/remove_activity" method="GET">
+ <button type="submit" class='remove-activity-btn'> <input type = "hidden" name="trip_id" value = "<%=@trip.id%>">X</button>
+ <%=link_to activity.name, activity.link%>
+ </form></li>
+<%end%>
+</ul>
+<%end%>
+
+<%if @trip.tags.any?%>
+Tags: 
+<ul>
+  <% @trip.tags.uniq.each do |tag| %>
+   <li><%= tag.name %></li>
+ <%end%>
+ </ul>
+<%end%>
+
 
 
 <small>Trip created on <%= @trip.created_at.strftime("%A, %d %b %Y")%></small>
+
+
