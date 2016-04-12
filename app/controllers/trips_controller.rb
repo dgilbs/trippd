@@ -39,6 +39,8 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    @packing_lists = @trip.packing_lists
+    @packing_list = @trip.packing_lists.build
   end
 
   def edit

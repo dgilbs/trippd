@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/change_current_trip/:id', to: 'users#change_current_trip', as: 'change_current_trip'
   get '/destinations/:id/add_activity', to: 'trips#add_activity', as: 'add_activity'
   get '/analytics', to: 'pages#analytics', as: 'analytics'
+  post '/packing_lists', to: 'packing_lists#create' 
 
   root 'pages#home'
 

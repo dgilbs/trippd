@@ -9,3 +9,23 @@ Duration: <%= @trip.duration %> days<br>
 
 
 <small>Trip created on <%= @trip.created_at.strftime("%A, %d %b %Y")%></small>
+
+<% if @trip.user_id == current_user.id %>
+
+  <% if @trip.packing_lists.any? %>
+ 
+   <p>Packing Lists</p>
+
+   <div id="packing-list">
+      <% @packing_lists.each do |packing_list| %>
+      <%= render partial: 'packing_lists/packing_list', locals: {packing_list: packing_list} %>
+    <% end %>
+
+  </div>
+    <% else %>
+      <p>Make a packing list for your trip!</p>
+
+      <%= render partial: 'packing_lists/form', locals: {packing_list: @packing_list, trip: @trip} %>
+  <% end%>
+
+<% end %>
