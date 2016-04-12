@@ -3,8 +3,6 @@
  <button type="submit" class='add-destination-btn'> + </button>
 </form>
 </h2> 
-
-
 <div class="activities-by-destination">
   <h3>Restaurants</h3>
     <ul>
@@ -13,12 +11,10 @@
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
           <button type="submit" class='add-activity-btn'> + </button>
           <%= link_to restaurant.name, restaurant.link %></li>
-
           </form>
       <% end %>
     </ul>
 </div>
-
 <div class="activities-by-destination">
   <h3>Music</h3>
     <ul>
@@ -31,7 +27,6 @@
       <% end %>
     </ul>
 </div>
-
 <div class="activities-by-destination">
   <h3>Active</h3>
     <ul>
@@ -44,7 +39,6 @@
       <% end %>
     </ul>
 </div>
-
 <div class="activities-by-destination">
   <h3>Spa/Fitness</h3>
     <ul>
@@ -57,7 +51,6 @@
       <% end %>
     </ul>
 </div>
-
 <div class="activities-by-destination">
   <h3>Shopping</h3>
     <ul>
@@ -70,5 +63,3 @@
       <% end %>
     </ul>
 </div><br>
-
-

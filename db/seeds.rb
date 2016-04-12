@@ -78,6 +78,14 @@ categories = Category.create([
   {name: "Shopping"},
   {name: "Spa/Fitness"}
   ])
+
+tags = Tag.create([
+  {name: "budget"},
+  {name: "family friendly"},
+  {name: "romantic"},
+  {name: "weekend getaway"},
+  {name: "off the beaten path"}
+])
   
 
 # users = User.create([

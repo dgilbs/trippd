@@ -69,6 +69,15 @@ class Trip < ActiveRecord::Base
     @cost_per = (self.budget / self.total_guests)
   end
 
+  def most_common_tag
+    self.tags.group('tags.name').order('count_id desc').limit(1).count('id')
+    #returns key, value pair ({"budget"=>3}), would be good for chartkick
+  end
+
+  def top_three_tags
+    self.tags.group('tags.name').order('count_id desc').limit(3).count('id')
+  end
+
   def budget_status
     # self.joins(:trip_destinations).where(trip_id = self.id)
 

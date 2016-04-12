@@ -6,6 +6,9 @@ Duration: <%= @trip.duration %> days<br>
 </p>
 
 
-
-
+Tags: <% @trip.tags.uniq.each do |tag| %>
+      <li><%= tag.name %></li>
+      <%end%>
+<!-- maybe we should make each tag a link, the user can see all trips with same tag -->
+<br>
 <small>Trip created on <%= @trip.created_at.strftime("%A, %d %b %Y")%></small>
