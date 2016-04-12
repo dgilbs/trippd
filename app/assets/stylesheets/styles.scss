@@ -126,3 +126,15 @@ a {
 .trip-btn a{
   color: $ocean;
 }
+
+.edit-trip-btn{
+  font-weight: 700;
+  background: $sun;
+  font-size: 15px;
+  color: $ocean;
+  padding: 15px 20px;
+  margin: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  
+}

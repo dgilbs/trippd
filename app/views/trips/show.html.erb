@@ -5,6 +5,12 @@
 Duration: <%= @trip.duration %> days<br>
 </p>
 
+
+<button class='edit-trip-btn'>
+<%=link_to "Edit This Trip", edit_trip_path(@trip)%>
+</button>
+<br><br>
+
 <%if @trip.destinations.any?%>
 This trip will include stops in:
 <ul>
