@@ -2,6 +2,6 @@
 
 <% @trips.each do |trip| %>
   <% if trip.start_date != nil && trip.end_date != nil && trip.start_date > DateTime.now.to_date %>
-  <button class="trip-btn"><%= trip.title %></button><br>
+  <button class="trip-btn"><%= link_to trip.title, trip_path(trip) %></button><br>
   <% end %>
 <% end %>

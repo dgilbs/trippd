@@ -75,8 +75,23 @@ class TripsController < ApplicationController
     @activity = Activity.find(params[:id])
     @trip.activities << @activity if !(@trip.activities.include?(@activity))
     @trip.save
-    binding.pry
     redirect_to destination_path(@destination)
+  end
+
+  def remove_destination
+    @destination = Destination.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
+    @trip.destinations.delete(@destination)
+    @trip.save
+    redirect_to @trip
+  end
+
+  def remove_activity
+    @activity = Activity.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
+    @trip.activities.delete(@activity)
+    @trip.save
+    redirect_to @trip
   end
 
   private

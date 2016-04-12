@@ -93,7 +93,35 @@ form {
   color: $snow;
 }
 
+.remove-destination-btn{
+  font-weight: 700;
+  background: $alge;
+  font-size: 15px;
+  padding: 5px 10px;
+  margin: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  display: inline;
+  color: $snow;
+}
+
+.remove-activity-btn{
+  font-weight: 700;
+  background: $alge;
+  font-size: 15px;
+  padding: 5px 10px;
+  margin: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  display: inline;
+  color: $snow;
+}
+
 a {
   text-decoration: none;
   color: black;
+}
+
+.trip-btn a{
+  color: $ocean;
 }
