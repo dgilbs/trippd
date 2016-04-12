@@ -6,6 +6,7 @@ $salmon: #ff7473;
 $sun: #feee7d;
 $alge: #79a8a9;
 $flower: #353866;
+$fire: #990000;
 
 
 .navbar {
@@ -102,7 +103,7 @@ form {
   border: none;
   border-radius: 5px;
   display: inline;
-  color: $snow;
+  color: $fire;
 }
 
 .remove-activity-btn{
@@ -114,7 +115,7 @@ form {
   border: none;
   border-radius: 5px;
   display: inline;
-  color: $snow;
+  color: $fire;
 }
 
 a {

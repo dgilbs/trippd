@@ -77,4 +77,10 @@ class Trip < ActiveRecord::Base
     # calculates sum of activity costs and compares to budget
   end
 
+  def delete_dependent_activities(dest)
+    self.activities.each do |activity|
+      self.activities.delete(activity) if activity.destination == dest 
+    end
+  end
+
 end

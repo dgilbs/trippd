@@ -82,6 +82,7 @@ class TripsController < ApplicationController
     @destination = Destination.find(params[:id])
     @trip = Trip.find(params[:trip_id])
     @trip.destinations.delete(@destination)
+    @trip.delete_dependent_activities(@destination)
     @trip.save
     redirect_to @trip
   end
