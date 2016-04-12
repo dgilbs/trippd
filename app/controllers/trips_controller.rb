@@ -75,6 +75,7 @@ class TripsController < ApplicationController
     @activity = Activity.find(params[:id])
     @trip.activities << @activity if !(@trip.activities.include?(@activity))
     @trip.save
+    binding.pry
     redirect_to destination_path(@destination)
   end
 
