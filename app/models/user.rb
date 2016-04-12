@@ -161,4 +161,11 @@ class User < ActiveRecord::Base
     array.last(3)
   end
 
+  def world_traveler
+    self.countries_visited.length > 10
+  end
+
+  def city_hopper
+  end
+
 end

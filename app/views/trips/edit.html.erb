@@ -1,5 +1,5 @@
 <h2>Update your trip!</h2>
 
-<%= render partial: 'trip', locals: {trip: @trip} %>
+<%= render partial: 'form', locals: {trip: @trip} %><br><br><br><br>
 
-<%= button_to("Delete Trip", "/trips/#{@trip.id}", method: "delete") %>
+<button class="delete-trip-btn"><%= link_to("Delete Trip", "/trips/#{@trip.id}", method: "delete") %></button>

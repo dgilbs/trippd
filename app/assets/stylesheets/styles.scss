@@ -6,6 +6,7 @@ $salmon: #ff7473;
 $sun: #feee7d;
 $alge: #79a8a9;
 $flower: #353866;
+$fire: #990000;
 
 
 .navbar {
@@ -93,7 +94,70 @@ form {
   color: $snow;
 }
 
+.remove-destination-btn{
+  font-weight: 700;
+  background: $alge;
+  font-size: 15px;
+  padding: 5px 10px;
+  margin: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  display: inline;
+  color: $fire;
+}
+
+.remove-activity-btn{
+  font-weight: 700;
+  background: $alge;
+  font-size: 15px;
+  padding: 5px 10px;
+  margin: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  display: inline;
+  color: $fire;
+}
+
 a {
   text-decoration: none;
   color: black;
+}
+
+.trip-btn a{
+  color: $ocean;
+}
+
+.edit-trip-btn{
+  font-weight: 700;
+  background: $sun;
+  font-size: 15px;
+  color: $ocean;
+  padding: 15px 20px;
+  margin: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  
+}
+
+.submit-trip-btn{
+  font-weight: 700;
+  background: $sun;
+  font-size: 15px;
+  color: $ocean;
+  padding: 15px 20px;
+  margin: 10px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.delete-trip-btn{
+  font-weight: 700;
+  background: $alge;
+  font-size: 15px;
+  padding: 15px 20px;
+  margin: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  display: inline;
+  color: $fire;
 }
