@@ -23,7 +23,10 @@
   <h3>Music</h3>
     <ul>
       <% @music_activities.each do |music| %>
-        <li> <input type="checkbox" value="<%=music.id%>"> <%= link_to music.name, music.link %></li>
+        <li> <form action="/destinations/<%=music.id%>/add_activity" method="GET">
+          <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
+          <button type="submit" class='add-activity-btn'> + </button>
+          <%= link_to music.name, music.link %></li>
       <% end %>
     </ul>
 </div>
@@ -32,7 +35,10 @@
   <h3>Active</h3>
     <ul>
       <% @active_activities.each do |active| %>
-        <li> <input type="checkbox" value="<%=active.id%>"> <%= link_to active.name, active.link %></li>
+        <li> <form action="/destinations/<%=active.id%>/add_activity" method="GET">
+          <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
+          <button type="submit" class='add-activity-btn'> + </button>
+          <%= link_to active.name, active.link %></li>
       <% end %>
     </ul>
 </div>
@@ -41,7 +47,10 @@
   <h3>Spa/Fitness</h3>
     <ul>
       <% @spa_fitness_activities.each do |spa_fitness| %>
-        <li> <input type="checkbox" value="<%=spa_fitness.id%>"> <%= link_to spa_fitness.name, spa_fitness.link %></li>
+        <li> <form action="/destinations/<%=spa_fitness.id%>/add_activity" method="GET">
+          <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
+          <button type="submit" class='add-activity-btn'> + </button>
+          <%= link_to spa_fitness.name, spa_fitness.link %></li>
       <% end %>
     </ul>
 </div>
@@ -50,7 +59,10 @@
   <h3>Shopping</h3>
     <ul>
       <% @shopping_activities.each do |shopping| %>
-        <li> <input type="checkbox" value="<%=shopping.id%>"> <%= link_to shopping.name, shopping.link %></li>
+        <li> <form action="/destinations/<%=shopping.id%>/add_activity" method="GET">
+          <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
+          <button type="submit" class='add-activity-btn'> + </button>
+          <%= link_to shopping.name, shopping.link %></li>
       <% end %>
     </ul>
 </div><br>
