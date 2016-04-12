@@ -4,12 +4,17 @@
 </form>
 </h2> 
 
-<form id="trip-activities">
+
 <div class="activities-by-destination">
   <h3>Restaurants</h3>
     <ul>
       <% @restaurants.each do |restaurant| %>
-        <li> <input type="checkbox" value="<%=restaurant.id%>"> <%= link_to restaurant.name, restaurant.link %></li>
+        <li> <form action="/destinations/<%=restaurant.id%>/add_activity" method="GET">
+          <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
+          <button type="submit" class='add-activity-btn'> + </button>
+          <%= link_to restaurant.name, restaurant.link %></li>
+
+          </form>
       <% end %>
     </ul>
 </div>
@@ -49,6 +54,5 @@
       <% end %>
     </ul>
 </div><br>
-<input type="submit" value="Add to Trip">
-</form>
+
 

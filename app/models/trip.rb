@@ -11,6 +11,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  title        :string
+#  range        :string
 #
 
 class Trip < ActiveRecord::Base
@@ -20,6 +21,8 @@ class Trip < ActiveRecord::Base
   has_many :trip_tags
   has_many :tags, through: :trip_tags
   has_many :packing_lists
+  has_many :trip_activities
+  has_many :activities, through: :trip_activities
   # validate :checks_doesnt_conflict_with_existing_trips
   validate :end_date_is_after_start_date
 

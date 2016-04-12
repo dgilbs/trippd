@@ -17,6 +17,8 @@ class Activity < ActiveRecord::Base
   belongs_to :destination 
   has_many :category_activities
   has_many :categories, through: :category_activities
+  has_many :trip_activities
+  has_many :trips, through: :trip_activities
 
   def self.restaurants
     joins(:categories).where(:categories =>{name: "Restaurants"})

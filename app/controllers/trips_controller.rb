@@ -11,6 +11,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  title        :string
+#  range        :string
 #
 
 class TripsController < ApplicationController
@@ -65,6 +66,15 @@ class TripsController < ApplicationController
     @trip.destinations << @destination if !(@trip.destinations.include?(@destination))
     @trip.save
 
+    redirect_to destination_path(@destination)
+  end
+
+  def add_activity
+    @destination = Destination.find(params[:destination_id])
+    @trip = Trip.find(current_user.current_trip_id)
+    @activity = Activity.find(params[:id])
+    @trip.activities << @activity if !(@trip.activities.include?(@activity))
+    @trip.save
     redirect_to destination_path(@destination)
   end
 
