@@ -272,13 +272,14 @@ class User < ActiveRecord::Base
         else
           budget.inject(0){|sum,x| sum + x } / budget.length
     end
+  end
 
   def world_traveler
     self.countries_visited.length > 10
   end
 
-  def city_hopper
+  # def city_hopper
 
-  end
+  # end
 
 end
