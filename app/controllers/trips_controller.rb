@@ -29,8 +29,7 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     if @trip.save 
       current_user.current_trip_id = @trip.id
-      current_user.save
-      
+      current_user.save   
       redirect_to @trip
     else
       render :new
@@ -58,6 +57,8 @@ class TripsController < ApplicationController
 
   def destroy
     @trip = Trip.find(params[:id])
+    @user = User.find(session[:user_id])
+    @user.current_trip_id=nil if @user.current_trip_id == @trip.id
     @trip.destroy
     redirect_to '/trips'
   end

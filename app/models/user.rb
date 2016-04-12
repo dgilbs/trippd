@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
 
   def current_trip
     if !self.current_trip_id.nil?
-      Trip.find(self.current_trip_id)
+      Trip.find(self.current_trip_id) if (Trip.find(self.current_trip_id)) != nil
     end
   end
 
