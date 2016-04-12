@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/destinations/:id/add_activity', to: 'trips#add_activity', as: 'add_activity'
   get '/trips/:id/remove_activity', to: 'trips#remove_activity', as: 'remove_activity'
   get '/analytics', to: 'pages#analytics', as: 'analytics'
+  post '/packing_lists', to: 'packing_lists#create' 
 
   root 'pages#home'
 
