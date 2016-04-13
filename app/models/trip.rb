@@ -92,6 +92,14 @@ class Trip < ActiveRecord::Base
     end
   end
 
-  
+  def self.avg_number_of_guests_per_trip
+    guests = []
+    self.all.each do |t|
+      guests << t.total_guests
+    end
+    guests.inject(0){|sum,x| sum + x } / guests.length
+  end
 
-end
+  end
+
+
