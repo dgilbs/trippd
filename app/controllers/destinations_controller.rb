@@ -19,11 +19,13 @@ class DestinationsController < ApplicationController
 
   def show
     @destination = set_destination
-    @restaurants = Adapters::DestinationClient.find_restaurant_by_location(@destination.city)
-    @shopping_activities = @destination.activities_shopping
-    @spa_fitness_activities = @destination.activities_spa_fitness
-    @music_activities = @destination.activities_music
-    @active_activities = @destination.activities_active
+    @restaurants = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Restaurants")
+    @shopping_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Shopping")
+    @cultural_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Cultural")
+
+    @spa_fitness_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Spa/Fitness")
+    @music_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Music")
+    @active_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Active")
   end
 
 
