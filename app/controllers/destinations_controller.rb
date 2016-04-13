@@ -18,20 +18,8 @@ class DestinationsController < ApplicationController
   end
 
   def show
-    businesses = Yelp.client.search("New York", { term: 'food', sort: 2 })
-    binding.pry
-    x = []
-    businesses.each do |business|
-      name = business.name
-      link = business.url
-      activity = Activity.new(name: name, link: link)
-      activity.category = Category.find(name: "Restaurant")
-      activity.save
-      x << activity
-    end
-    binding.pry
     @destination = set_destination
-    @restaurants = @destination.activities_restaurants
+    @restaurants = Adapters::DestinationClient.find_restaurant_by_location(@destination.city)
     @shopping_activities = @destination.activities_shopping
     @spa_fitness_activities = @destination.activities_spa_fitness
     @music_activities = @destination.activities_music
