@@ -15,7 +15,7 @@
 #
 
 class TripsController < ApplicationController
-  before_filter :authorize, only: [:edit, :update]
+  before_filter :authorize
 
   def index
     @trips = Trip.all
@@ -30,7 +30,7 @@ class TripsController < ApplicationController
     if @trip.save 
       current_user.current_trip_id = @trip.id
       current_user.save
-      
+      binding.pry
       redirect_to @trip
     else
       render :new
@@ -67,7 +67,6 @@ class TripsController < ApplicationController
     @destination = Destination.find(params[:id])
     @trip.destinations << @destination if !(@trip.destinations.include?(@destination))
     @trip.save
-
     redirect_to destination_path(@destination)
   end
 

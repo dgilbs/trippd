@@ -35,6 +35,10 @@ class Destination < ActiveRecord::Base
     end
   end
 
+  def self.total_trips_to(city)
+    (self.joins(:trips).where("city = ?", city)).count
+  end
+
   def self.order_by_city
     Destination.order(:city)
   end  
