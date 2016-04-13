@@ -61,6 +61,8 @@ class TripsController < ApplicationController
     @user.current_trip_id = nil if @user.current_trip_id == @trip.id 
     @user.save  
     @trip.destroy
+    @user.current_trip_id = @user.trips.last.id if @user.trips.any?
+    @user.save
     redirect_to trips_path
   end
 
