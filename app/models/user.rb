@@ -30,14 +30,12 @@ class User < ActiveRecord::Base
     end
   end
 
-  def reset_current_trip
-    if self.trips.length > 0
-      new_trip = self.trips.last
-      self.current_trip_id = new_trip.id 
-    else
-      self.current_trip_id = nil 
+  def reset_current_trip(trip)
+    if self.current_trip_id == trip.id
+      self.current_trip_id = nil
     end
   end
+
 
   def age
     age = Date.day.year - self.date_of_birth.year

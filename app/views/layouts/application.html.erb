@@ -15,7 +15,7 @@
     <% if current_user %>
       <li>Logged in as <%= current_user.first_name %></li>
       <li><%= link_to "Log Out", logout_path %></li>
-        <%if current_user.trips.any? %>        
+        <%if current_user.current_trip %>        
         <li>Currently planning: <%= current_user.current_trip.title %></li>
         <li><%=link_to "Change Trip", user_path(current_user)%></li>
         <%end%>

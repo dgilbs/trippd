@@ -58,7 +58,8 @@ class TripsController < ApplicationController
   def destroy
     @trip = Trip.find(params[:id])
     @user = User.find(session[:user_id]) 
-    @user.current_trip_id = nil if @user.current_trip_id == @trip.id   
+    @user.current_trip_id = nil if @user.current_trip_id == @trip.id 
+    @user.save  
     @trip.destroy
     redirect_to trips_path
   end
