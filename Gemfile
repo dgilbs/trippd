@@ -29,6 +29,10 @@ gem 'pg'
 
 gem 'bootstrap-sass'
 
+gem 'httparty'
+
+gem 'yelp', require: 'yelp'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
