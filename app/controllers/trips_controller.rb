@@ -59,7 +59,6 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @user = User.find(session[:user_id]) 
     @user.current_trip_id = nil if @user.current_trip_id == @trip.id 
-    @user.save  
     @trip.destroy
     @user.reset_current_trip
     @user.save
