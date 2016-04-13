@@ -182,7 +182,6 @@ class User < ActiveRecord::Base
     end
   end
 
-
   def world_traveler
     self.countries_visited.length > 10
   end
