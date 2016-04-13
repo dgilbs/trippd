@@ -92,4 +92,6 @@ class Trip < ActiveRecord::Base
     end
   end
 
+  
+
 end
