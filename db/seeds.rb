@@ -10,21 +10,21 @@ destinations = Destination.create([
   {city: "Cartagena", country: "Columbia", continent: "South America"}
   ])
 
-trip_destinations = TripDestination.create([
-  {trip_id: 1, destination_id: 1},
-  {trip_id: 2, destination_id: 2},
-  {trip_id: 3, destination_id: 2},
-  {trip_id: 4, destination_id: 2},
-  {trip_id: 5, destination_id: 2},
-  {trip_id: 6, destination_id: 2},
-  {trip_id: 7, destination_id: 2},
-  {trip_id: 8, destination_id: 3},
-  {trip_id: 9, destination_id: 3},
-  {trip_id: 10, destination_id: 3},
-  {trip_id: 11, destination_id: 3},
-  {trip_id: 12, destination_id: 3},
-  {trip_id: 13, destination_id: 3},
-  ])
+# trip_destinations = TripDestination.create([
+#   {trip_id: 1, destination_id: 1},
+#   {trip_id: 2, destination_id: 2},
+#   {trip_id: 3, destination_id: 2},
+#   {trip_id: 4, destination_id: 2},
+#   {trip_id: 5, destination_id: 2},
+#   {trip_id: 6, destination_id: 2},
+#   {trip_id: 7, destination_id: 2},
+#   {trip_id: 8, destination_id: 3},
+#   {trip_id: 9, destination_id: 3},
+#   {trip_id: 10, destination_id: 3},
+#   {trip_id: 11, destination_id: 3},
+#   {trip_id: 12, destination_id: 3},
+#   {trip_id: 13, destination_id: 3},
+#   ])
 
 category_activities = CategoryActivity.create([
   {activity_id: 1, category_id: 2},

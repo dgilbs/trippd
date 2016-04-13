@@ -25,14 +25,14 @@ class User < ActiveRecord::Base
 
 
   def current_trip
-    if !self.current_trip_id.nil?
+    if !self.current_trip_id.nil? 
       Trip.find(self.current_trip_id)
     end
   end
 
-  def reset_current_trip(trip)
-    if self.current_trip_id == trip.id
-      self.current_trip_id = nil
+  def reset_current_trip
+    if self.current_trip.nil? && self.trips.any?
+      self.current_trip_id = self.trips.last.id
     end
   end
 
