@@ -17,7 +17,19 @@
         <li> <form action="/destinations/<%=restaurant.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
           <button type="submit" class='add-activity-btn'> + </button>
-          <%= link_to restaurant.name, restaurant.link %></li>
+          <%= link_to restaurant.name, restaurant.link, :target => '_blank' %></li>
+          </form>
+      <% end %>
+    </ul>
+</div>
+<div class="activities-by-destination">
+  <h3>Spa/Fitness</h3>
+    <ul>
+      <% @spa_fitness_activities.each do |spa_fitness| %>
+        <li> <form action="/destinations/<%=spa_fitness.id%>/add_activity" method="GET">
+          <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
+          <button type="submit" class='add-activity-btn'> + </button>
+          <%= link_to spa_fitness.name, spa_fitness.link, :target => '_blank' %></li>
           </form>
       <% end %>
     </ul>
@@ -41,7 +53,7 @@
         <li> <form action="/destinations/<%=music.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
           <button type="submit" class='add-activity-btn'> + </button>
-          <%= link_to music.name, music.link %></li>
+          <%= link_to music.name, music.link, :target => '_blank' %></li>
           </form>
       <% end %>
     </ul>
@@ -53,7 +65,7 @@
         <li> <form action="/destinations/<%=active.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
           <button type="submit" class='add-activity-btn'> + </button>
-          <%= link_to active.name, active.link %></li>
+          <%= link_to active.name, active.link, :target => '_blank' %></li>
           </form>
       <% end %>
     </ul>
@@ -64,8 +76,8 @@
       <% @cultural_activities.each do |cultural| %>
         <li> <form action="/destinations/<%=cultural.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
-          <button type="submit" class='add-activity-btn'> + </button>
-          <%= link_to cultural.name, cultural.link %></li>
+          <button type="submit" class='add-activity-btn'> + </button><%= link_to cultural.name, cultural.link, :target => '_blank' %></li>
+
           </form>
       <% end %>
     </ul>
@@ -77,7 +89,7 @@
         <li> <form action="/destinations/<%=shopping.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
           <button type="submit" class='add-activity-btn'> + </button>
-          <%= link_to shopping.name, shopping.link %></li>
+          <%= link_to shopping.name, shopping.link, :target => '_blank' %></li>
           </form>
       <% end %>
     </ul>

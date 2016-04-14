@@ -43,7 +43,6 @@ destinations = Destination.create([
 #   {trip_id: 13, destination_id: 3},
 #   ])
 
-
 # category_activities = CategoryActivity.create([
 #   {activity_id: 1, category_id: 2},
 #   {activity_id: 2, category_id: 5},
