@@ -24,7 +24,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      ExampleMailer.trip_email(current_user).deliver_now
       redirect_to '/trips', notice: 'Welcome!'
     else
       render :new

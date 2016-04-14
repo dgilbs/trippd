@@ -40,7 +40,6 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @packing_lists = @trip.packing_lists
     @packing_list = @trip.packing_lists.build
-    ExampleMailer.trip_email(current_user).deliver
   end
 
   def edit
@@ -64,6 +63,13 @@ class TripsController < ApplicationController
     @user.reset_current_trip
     @user.save
     redirect_to trips_path
+  end
+
+ def send_email
+    @trip = Trip.find(params[:id])
+    @user = User.find(@trip.user_id)
+    ExampleMailer.trip_email(@user).deliver
+    render json: {msg: "success!"}
   end
 
   def add_destination

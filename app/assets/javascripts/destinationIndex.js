@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $('.search-terms').click(function(e){
     e.preventDefault();
-    var @query = $('.search-terms').val();
+    var query = $('.search-terms').val();
     $.ajax({
       url: '/destinations',
       method: 'POST',
@@ -9,4 +9,4 @@ $(document).ready(function(){
     })
 
   })
-}
+})

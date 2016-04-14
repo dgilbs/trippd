@@ -63,3 +63,9 @@ Tags:
       <%= render partial: 'packing_lists/form', locals: {packing_list: @packing_list, trip: @trip} %>
   <% end%>
 <% end %>
+<br></br>
+<p>
+<button class='email-trip-btn' value="<%= @trip.id%>">
+<%=link_to "Email This Trip", email_trip_path %>
+</button>
+</p>
