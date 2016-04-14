@@ -13,14 +13,7 @@ $(document).on("ready", function(){
       var name = response.name
       var id = response.id
 
-
-      $("#new-packing-list").append('<div class="packing-list"> <h4>'+ name + '</h4><form id="new-item-form" action="/items" method="POST">
-      <input type="text" id="new-item-name" placeholder="Add an item!">
-      <input type="hidden" id="packing_list_id" name="packing_list_id" value="' + id +'">
-      <input type="submit" id="submit-item-btn">
-      </form><ul id="packing-list-' + id +'"></ul></div>');
-      // $("#new-packing-list").append('<div class="packing-list"> <h4>'+ name + '</h4><ul id="packing-list-' + id +'"></ul></div>');
-
+      $("#new-packing-list").append('<div class="packing-list"> <h4>'+ name + '</h4><form id="new-item-form" action="/items" method="POST"><input type="text" id="new-item-name" placeholder="Add an item!"><input type="hidden" id="packing_list_id" name="packing_list_id" value="' + id +'"><input type="submit" id="submit-item-btn"></form><ul id="packing-list-' + id +'"></ul></div>');
 
     })
     
@@ -40,13 +33,8 @@ $(document).on("ready", function(){
       
     })
   })
+
 })
 
 
-    // <div id="new-packing-list">
-    //   <div class='packing-list'>  
-    //     <h4>Name</h4>
-    //     <ul></ul>
-    //   </div>
-    // </div>
 
