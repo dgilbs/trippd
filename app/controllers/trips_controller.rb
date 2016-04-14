@@ -40,6 +40,7 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @packing_lists = @trip.packing_lists
     @packing_list = @trip.packing_lists.build
+    ExampleMailer.trip_email(current_user).deliver
   end
 
   def edit

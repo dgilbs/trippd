@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @user.first_name %>!</h1>
+    <p>
+      Here's the itinerary for your upcoming trip:<br>
+      <% x = @user.current_trip_id %>
+      <% trip = @user.trips.find(x) %>
+      <h2><%= trip.title %></h2>
+      <%= trip.start_date.strftime("%A, %b %d, %Y")%> - <%=trip.end_date.strftime("%A, %b %d, %Y")%>
+      <br>
+      Duration: <%= trip.duration %> days
+    <h3>Destinations:</h3>
+    <% trip.destinations.each do |destination|%>
+     <%= destination.city%><br>
+    <%end%>
+    <h3>Activities planned:</h3>
+    <% trip.activities.each do |activity|%>
+     <%= activity.name%><br>
+    <%end%>
+
+    </p>
+  </body>
+</html>
