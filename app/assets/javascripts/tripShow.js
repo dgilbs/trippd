@@ -10,12 +10,13 @@ $(document).on("ready", function(){
       data: {trip_id: tripId, name: name}
 
     }).success(function(response, settings){
-      debugger
       var name = response.name
       var id = response.id
 
+      $("#new-packing-list").append('<div class="packing-list"> <h4>'+ name + '</h4><form id="new-item-form" action="/items" method="POST"><input type="text" id="new-item-name" placeholder="Add an item!"><input type="hidden" id="packing_list_id" name="packing_list_id" value="' + id +'"><input type="submit" id="submit-item-btn"></form><ul id="packing-list-' + id +'"></ul></div>');
 
-      $("#new-packing-list").append('<div class="packing-list"> <h4>'+ name + '</h4><ul id="packing-list-' + id +'"></ul></div>');
+
+      // $("#new-packing-list").append('<div class="packing-list"> <h4>'+ name + '</h4><ul id="packing-list-' + id +'"></ul><button class="add-list-item-btn" id="packing-list-' + id +'">Add Item</button></div>');
 
 
     })
@@ -36,6 +37,8 @@ $(document).on("ready", function(){
       
     })
   })
+
+  $
 })
 
 
