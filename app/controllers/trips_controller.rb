@@ -65,6 +65,13 @@ class TripsController < ApplicationController
     redirect_to trips_path
   end
 
+ def send_email
+    @trip = Trip.find(params[:id])
+    @user = User.find(@trip.user_id)
+    ExampleMailer.trip_email(@user).deliver
+    render json: {msg: "success!"}
+  end
+
   def add_destination
     @trip = Trip.find(current_user.current_trip_id)
     @destination = Destination.find(params[:id])
