@@ -49,18 +49,29 @@ Tags:
 <small>Trip created on <%= @trip.created_at.strftime("%A, %d %b %Y")%></small>
 
 
+  <div class="packing-list">
+  <div id="new-packing-list">
+
+  </div>
   <% if @trip.packing_lists.first.id != nil %>
  
    <p>Packing Lists</p>
 
       <% @packing_lists.each do |packing_list| %>
 
-      <%= render partial: 'packing_lists/packing_list', locals: {packing_list: packing_list} %>
-    <% end %>
-    <% else %>
-      <p>Make a packing list for your trip!</p>
 
-      <%= render partial: 'packing_lists/form', locals: {packing_list: @packing_list, trip: @trip} %>
+      <%= render partial: 'packing_lists/packing_list', locals: {packing_list: packing_list} %><br>
+      
+      </form>
+
+    <% end %>
+
+
   <% end%>
+    <p>Add a packing list to your trip!</p>
+
+    <%= render partial: 'packing_lists/form', locals: {packing_list: @packing_list, trip: @trip} %>
+  </div>
 <% end %>
+
 

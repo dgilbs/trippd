@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get '/destinations/:id/add_activity', to: 'trips#add_activity', as: 'add_activity'
   get '/trips/:id/remove_activity', to: 'trips#remove_activity', as: 'remove_activity'
   get '/analytics', to: 'pages#analytics', as: 'analytics'
-  post '/packing_lists', to: 'packing_lists#create' 
+  post '/packing_lists', to: 'packing_lists#create'
+  post '/items', to: 'items#create' 
+
 
   root 'pages#home'
 
@@ -16,6 +18,8 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   resources :destinations
+  
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

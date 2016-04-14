@@ -36,7 +36,7 @@ class Destination < ActiveRecord::Base
   end
 
 
-  def search(query)
+  def self.search(query)
     where('city LIKE ? OR country LIKE ?', "%#{query}%", "%#{query}%")
   end
 
