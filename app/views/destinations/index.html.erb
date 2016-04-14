@@ -5,6 +5,9 @@
 <button type="submit" class="search-destination-btn">Search</button>
 </form>
 
+<div id="search-results">
+</div>
+<br><br>
 <% @destinations.each do |destination| %>
   <button class="trip-btn"><%= link_to destination.city, destination_path(destination)%></button>
 <% end %>

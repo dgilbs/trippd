@@ -1,1 +1,10 @@
-<%= packing_list.name %>
+<%= packing_list.name %><br>
+<ul id="packing-list-<%=packing_list.id%>">
+<%packing_list.items.each do |item|%>
+<li><%=item.name%></li>
+<%end%>
+</ul>
+<form class="new-item-form" action="/items" method="POST">
+<input type="text" id="new-item-name" placeholder="Add an item!">
+<input type="hidden" id="packing_list_id" name="packing_list_id" value="<%=packing_list.id%>">
+<input type="submit" class="submit-item-btn"></form>
