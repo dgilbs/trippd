@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on("page:load ready", function() {
    $(".email-trip-btn").click(function(event){
       event.preventDefault();
       var id = $(".email-trip-btn").val()
