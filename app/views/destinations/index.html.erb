@@ -1,5 +1,10 @@
 <h2>Where do you want to go?</h2>
 
+<form class="search-form" id="destination-search-form">
+<input type="text" class="search-terms" placeholder="Type a city...">
+<button type="submit" class="search-destination-btn">Search</button>
+</form>
+
 <% @destinations.each do |destination| %>
   <button class="trip-btn"><%= link_to destination.city, destination_path(destination)%></button>
 <% end %>

@@ -1,7 +1,7 @@
 Most Popular Destination(s):
 <ul>
 <% @most_popular_destinations.each do |destination| %>
-<li><%= link_to(destination.city, destination_path(destination)) %></li> 
+<li><%= link_to(destination.city, destination_path(destination)) %> Total trips: <%= @destinations.total_trips_to(destination.city) %> </li> 
 <% end %>
 </ul>
 
@@ -13,20 +13,19 @@ Most Popular Destination(s):
 
 <% if @forties > 0 %>
 <p>
-Average budget for people born bw 1940 and 1949: $<%= @seventies %>.
+Average budget for people born bw 1940 and 1949: $<%= @forties %>.
 <% end %>
 </p>
 
 <% if @fifties > 0 %>
 <p>
-Average budget for people born bw 1950 and 1959: $<%= @seventies %>.
+Average budget for people born bw 1950 and 1959: $<%= @fifties %>.
 <% end %>
 </p>
 
-
 <% if @sixties > 0 %>
 <p>
-Average budget for people born bw 1960 and 1969: $<%= @seventies %>.
+Average budget for people born bw 1960 and 1969: $<%= @sixties %>.
 <% end %>
 </p>
 
@@ -38,13 +37,36 @@ Average budget for people born bw 1970 and 1979: $<%= @seventies %>.
 
 <% if @eighties > 0 %>
 <p>
-Average budget for people born bw 1980 and 1989: $<%= @seventies %>.
+Average budget for people born bw 1980 and 1989: $<%= @eighties %>.
 <% end %>
 </p>
 
 <% if @nineties > 0 %>
 <p>
-Average budget for people born bw 1990 and 1999: $<%= @seventies %>.
+Average budget for people born bw 1990 and 1999: $<%= @nineties %>.
 <% end %>
 </p>
 
+<% if @avg_guest_amount > 0 %>
+<p>
+Average guests per a trip <%= @avg_guest_amount %>.
+<% end %>
+</p>
+
+<% if @total_trips_to_paris > 0 %>
+<p>
+Total trips to Paris: <%= @total_trips_to_paris %>.
+<% end %>
+</p>
+
+<% if @total_trips_to_nyc > 0 %>
+<p>
+Total trips to NYC: <%= @total_trips_to_nyc %>.
+<% end %>
+</p>
+
+<% if @total_trips_to_portland > 0 %>
+<p>
+Total trips to Portland: <%= @total_trips_to_portland %>.
+<% end %>
+</p>

@@ -1,10 +1,12 @@
 <h2>ahh... the lovely <%= @destination.city %> 
 
 <form action="/destinations/<%= @destination.id%>/add_destination" method="GET">
+<% if current_user %> 
 <% if current_user.current_trip %>
  <button type="submit" class='add-destination-btn'> + </button>
  <% else %>
  <button class='add-destination-btn'><%= link_to "Plan a trip to #{@destination.city}", new_trip_path %></button>
+ <% end %>
  <% end %>
 </form>
 </h2> 
@@ -16,6 +18,18 @@
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
           <button type="submit" class='add-activity-btn'> + </button>
           <%= link_to restaurant.name, restaurant.link %></li>
+          </form>
+      <% end %>
+    </ul>
+</div>
+<div class="activities-by-destination">
+  <h3>Spa/Fitness</h3>
+    <ul>
+      <% @spa_fitness_activities.each do |spa_fitness| %>
+        <li> <form action="/destinations/<%=spa_fitness.id%>/add_activity" method="GET">
+          <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
+          <button type="submit" class='add-activity-btn'> + </button>
+          <%= link_to spa_fitness.name, spa_fitness.link %></li>
           </form>
       <% end %>
     </ul>
@@ -45,13 +59,13 @@
     </ul>
 </div>
 <div class="activities-by-destination">
-  <h3>Spa/Fitness</h3>
+  <h3>Cultural</h3>
     <ul>
-      <% @spa_fitness_activities.each do |spa_fitness| %>
-        <li> <form action="/destinations/<%=spa_fitness.id%>/add_activity" method="GET">
+      <% @cultural_activities.each do |cultural| %>
+        <li> <form action="/destinations/<%=cultural.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
           <button type="submit" class='add-activity-btn'> + </button>
-          <%= link_to spa_fitness.name, spa_fitness.link %></li>
+          <%= link_to cultural.name, cultural.link %></li>
           </form>
       <% end %>
     </ul>

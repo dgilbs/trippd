@@ -15,16 +15,18 @@ class DestinationsController < ApplicationController
 
   def index
     @destinations = Destination.order_by_city
+    # @destinations_by_search = Destination.search(@query)
   end
 
   def show
     @destination = set_destination
-    @restaurants = @destination.activities_restaurants
-    @shopping_activities = @destination.activities_shopping
-    @spa_fitness_activities = @destination.activities_spa_fitness
-    @music_activities = @destination.activities_music
-    @active_activities = @destination.activities_active
+    @restaurants = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Restaurants")
+    @shopping_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Shopping")
+    @cultural_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Cultural")
 
+    @spa_fitness_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Spa/Fitness")
+    @music_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Music")
+    @active_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Active")
   end
 
 
@@ -36,5 +38,9 @@ class DestinationsController < ApplicationController
 
   def destination_params
     params.require(:destination).permit(:city, :state, :country, :continent, activity_ids:[])
+
+  end
+  def query_params
+     params.permit(:query)
   end
 end

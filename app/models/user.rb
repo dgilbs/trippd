@@ -25,14 +25,14 @@ class User < ActiveRecord::Base
 
 
   def current_trip
-    if !self.current_trip_id.nil?
+    if !self.current_trip_id.nil? 
       Trip.find(self.current_trip_id)
     end
   end
 
-  def reset_current_trip(trip)
-    if self.current_trip_id == trip.id
-      self.current_trip_id = nil
+  def reset_current_trip
+    if self.current_trip.nil? && self.trips.any?
+      self.current_trip_id = self.trips.last.id
     end
   end
 
@@ -168,116 +168,17 @@ class User < ActiveRecord::Base
     array.last(3)
   end
 
-  def self.thirties_avg_budget
+  def self.avg_budget_per_age_range(starting_date, ending_date)
     budget = []
-    self.where(date_of_birth: ("1930-01-01" .. "1939-12-31")).each do |user|
-      user.trips.each do |trip|
-        budget << trip.budget
+    self.where(("date_of_birth >= ? AND date_of_birth <= ?"), starting_date, ending_date).each do |user|
+    budget = user.trips.map do |trip|
+        trip.budget
       end
     end
-        if budget.length == 0
-          return 0
-        else
-          budget.inject(0){|sum,x| sum + x } / budget.length
-    end
-  end
-
-
-  def self.forties_avg_budget
-    budget = []
-    self.where(date_of_birth: ("1940-01-01" .. "1949-12-31")).each do |user|
-      user.trips.each do |trip|
-        budget << trip.budget
-      end
-    end
-        if budget.length == 0
-          return 0
-        else
-          budget.inject(0){|sum,x| sum + x } / budget.length
-    end
-  end
-
-  def self.fifties_avg_budget
-    budget = []
-    self.where(date_of_birth: ("1950-01-01" .. "1959-12-31")).each do |user|
-      user.trips.each do |trip|
-        budget << trip.budget
-      end
-    end
-        if budget.length == 0
-          return 0
-        else
-        budget.inject(0){|sum,x| sum + x } / budget.length
-    end
-  end
-
-  def self.sixties_avg_budget
-    budget = []
-    self.where(date_of_birth: ("1960-01-01" .. "1969-12-31")).each do |user|
-      user.trips.each do |trip|
-        budget << trip.budget
-      end
-    end
-      if budget.length == 0
-       return 0
-      else
-        budget.inject(0){|sum,x| sum + x } / budget.length
-    end
-  end
-
-  def self.seventies_avg_budget
-    budget = []
-    self.where(date_of_birth: ("1970-01-01" .. "1979-12-31")).each do |user|
-      user.trips.each do |trip|
-        budget << trip.budget
-      end
-    end
-    if    budget.length == 0
-       return 0
+    if budget.empty?
+      0
     else
-        budget.inject(0){|sum,x| sum + x } / budget.length
-    end
-  end
-
-  def self.eighties_avg_budget
-    budget = []
-    self.where(date_of_birth: ("1980-01-01" .. "1989-12-31")).each do |user|
-      user.trips.each do |trip|
-        budget << trip.budget
-      end
-    end
-        if budget.length == 0
-          return 0
-      else
-          budget.inject(0){|sum,x| sum + x } / budget.length
-    end
-  end
-
-  def self.nineties_avg_budget
-    budget = []
-    self.where(date_of_birth: ("1990-01-01" .. "1999-12-31")).each do |user|
-      user.trips.each do |trip|
-        budget << trip.budget
-      end
-    end
-        if budget.length == 0
-          return 0
-        else
-          budget.inject(0){|sum,x| sum + x } / budget.length
-    end
-  end
-
-  def self.two_thousands_avg_budget
-    budget = []
-    self.where(date_of_birth: ("2000-01-01" .. "2009-12-31")).each do |user|
-      user.trips.each do |trip|
-        budget << trip.budget
-      end
-    end
-        if budget.length == 0
-          return 0
-        else
-          budget.inject(0){|sum,x| sum + x } / budget.length
+      budget.sum / budget.length
     end
   end
 
