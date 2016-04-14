@@ -15,6 +15,7 @@ class DestinationsController < ApplicationController
 
   def index
     @destinations = Destination.order_by_city
+    # @destinations_by_search = Destination.search(@query)
   end
 
   def show
@@ -37,5 +38,9 @@ class DestinationsController < ApplicationController
 
   def destination_params
     params.require(:destination).permit(:city, :state, :country, :continent, activity_ids:[])
+
+  end
+  def query_params
+     params.permit(:query)
   end
 end

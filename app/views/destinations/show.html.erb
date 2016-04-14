@@ -35,6 +35,18 @@
     </ul>
 </div>
 <div class="activities-by-destination">
+  <h3>Spa/Fitness</h3>
+    <ul>
+      <% @spa_fitness_activities.each do |spa_fitness| %>
+        <li> <form action="/destinations/<%=spa_fitness.id%>/add_activity" method="GET">
+          <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
+          <button type="submit" class='add-activity-btn'> + </button>
+          <%= link_to spa_fitness.name, spa_fitness.link %></li>
+          </form>
+      <% end %>
+    </ul>
+</div>
+<div class="activities-by-destination">
   <h3>Music</h3>
     <ul>
       <% @music_activities.each do |music| %>
@@ -64,8 +76,8 @@
       <% @cultural_activities.each do |cultural| %>
         <li> <form action="/destinations/<%=cultural.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
-          <button type="submit" class='add-activity-btn'> + </button>
-          <%= link_to cultural.name, cultural.link, :target => '_blank' %></li>
+          <button type="submit" class='add-activity-btn'> + </button><%= link_to cultural.name, cultural.link, :target => '_blank' %></li>
+
           </form>
       <% end %>
     </ul>

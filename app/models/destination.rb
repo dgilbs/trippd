@@ -35,6 +35,11 @@ class Destination < ActiveRecord::Base
     end
   end
 
+
+  def search(query)
+    where('city LIKE ? OR country LIKE ?', "%#{query}%", "%#{query}%")
+  end
+
   def self.total_trips_to(city)
     (self.joins(:trips).where("city = ?", city)).count
   end
