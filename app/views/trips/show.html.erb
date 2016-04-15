@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p>
 <strong><%= @trip.title %></strong><br>
 <%= @trip.start_date.strftime("%A, %b %d, %Y")%> - <%= @trip.end_date.strftime("%A, %b %d, %Y") %><br>
@@ -52,16 +53,78 @@ Tags:
   <div id="packing-list">
 
   <% if @trip.packing_lists.first.id != nil %>
+
+<div class="row">
+  <div class="col-md-6">
+    <p><strong><%= @trip.title %></strong>  
+      <% if @trip.user == current_user %>
+        <%= link_to edit_trip_path(@trip) do %>
+        <span class="glyphicon glyphicon-pencil"></span>
+      <%end%><br>
+      <% end %>
+      <%= @trip.start_date.strftime("%A, %b %d, %Y")%> - <%= @trip.end_date.strftime("%A, %b %d, %Y") %><br>
+      Duration: <%= @trip.duration %> days<br>
+    </p>
+
+    <%if @trip.destinations.any?%>
+      This trip will include stops in:
+      <ul>
+        <%@trip.destinations.each do |destination|%>
+        <li>
+          <form action="/destinations/<%=destination.id%>/remove_destination" method="DELETE"> 
+            <% if @trip.user == current_user %>
+              <button type="submit" class='remove-destination-btn'> <input type = "hidden" name="trip_id" value = "<%=@trip.id%>">X</button>
+            <% end %>
+            <%=link_to destination.city, destination%>
+          </form>
+          </li>
+        <%end%>
+      </ul>
+    <%end%>
+
+    <% if @trip.activities.any? %>
+      Activities You Have Planned:
+        <ul>
+          <%@trip.activities.each do |activity|%>
+            <li>
+              <form action="/trips/<%=activity.id%>/remove_activity" method="GET">
+                <button type="submit" class='remove-activity-btn'> <input type = "hidden" name="trip_id" value = "<%=@trip.id%>">X</button>
+                <%=link_to activity.name, activity.link%>
+              </form>
+            </li>
+          <%end%>
+        </ul>
+      <%end%>
+
+    <%if @trip.tags.any?%>
+      Tags: 
+      <ul><% @trip.tags.uniq.each do |tag| %>
+       <li><%= tag.name %></li>
+        <%end%>
+      </ul>
+    <%end%>
+
+    <% if @trip.user == current_user %>
  
-   <p>Packing Lists</p>
+      <small>Trip created on <%= @trip.created_at.strftime("%A, %d %b %Y")%></small>
+</div>
+    <div class="col-md-6">
+      <div class="packing-list">
+        <div id="new-packing-list">
+        </div>
 
-      <% @packing_lists.each do |packing_list| %>
+        <% if @trip.packing_lists.first.id != nil %>
+          <p>Packing Lists</p>
+            <% @packing_lists.each do |packing_list| %>
+              <%= render partial: 'packing_lists/packing_list', locals: {packing_list: packing_list} %><br>
+            <% end %>
+        <% end%>
 
-      <%= render partial: 'packing_lists/packing_list', locals: {packing_list: packing_list} %><br>
-      
-      </form>
+        <p>Add a packing list to your trip!</p>
 
-    <% end %>
+          <%= render partial: 'packing_lists/form', locals: {packing_list: @packing_list, trip: @trip, user: @user} %>
+      </div>
+
 
 
   <% end%>
@@ -69,13 +132,16 @@ Tags:
     <p>Add a packing list to your trip!</p>
     <%= render partial: 'packing_lists/form', locals: {packing_list: @packing_list, trip: @trip, user: @user} %>
   <%end%>
-  </div>
-<% end %>
 
-<br></br>
-<p>
-<button class='email-trip-btn' value="<%= @trip.id%>">
-<%=link_to "Email This Trip", email_trip_path %>
-</button>
-</p>
+    <% end %>
+
+  </div>
+</div>
+</div>
+
+<div class="container">
+  <button class='email-trip-btn' value="<%= @trip.id%>">
+    <%=link_to "Email This Trip", email_trip_path %>
+  </button>
+</div>
 

@@ -8,33 +8,39 @@
 </head>
 <body>
 <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
-  <div class="navbar">
-    
-    <ul>
-
+   <nav class="navbar-default navbar mainNav">
+    <div class="fluid-nav">
+      <a class="navbar-brand" href="/">Trip'd</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
     <% if current_user %>
-      <li>Logged in as <%= current_user.first_name %></li>
-      <li><%= link_to "Log Out", logout_path %></li>
-        <%if current_user.current_trip %>        
-        <li>Currently planning: <%= current_user.current_trip.title %></li>
+      <%if current_user.current_trip %>        
+        <li id="blue"><%= link_to "Currently planning: #{current_user.current_trip.title}", trip_path(current_user.current_trip.id) %></li>
         <li><%=link_to "Change Trip", user_path(current_user)%></li>
         <%end%>
+         <li><%= link_to "Plan a trip!", new_trip_path, :class => "new-trip-btn"%></li>
+     <li><%= link_to "View Trips", trips_path%></li>
+      <li><%= link_to "Browse Destinations", destinations_path%></li>
+    
+        
+             <li><%= link_to "Hi, #{current_user.first_name}", user_path(current_user) %></li>
+      <li><%= link_to "Log Out", logout_path %></li>
+       
+
     <% else %>
       <li><%= link_to "Sign Up", signup_path %></li>
       <li><%= link_to "Log In", login_path %></li>
-
     <% end %>
-      <li><%= link_to "View Trips", trips_path%></li>
-      <li><%= link_to "Browse Destinations", destinations_path%></li>
     </ul>
 
-    <% flash.each do |name, msg| %>
+  </div>
+  
+<!-- our nav bar -->
+<div class="container">
+<% flash.each do |name, msg| %>
     <%= content_tag :div, msg, id: "flash_#{name}" %>
  
   <% end %>
-  </div>
-<!-- our nav bar -->
-<div class="container">
 <%= yield %>
 </div>
 
