@@ -4,8 +4,10 @@
       <% if @trip.user == current_user %>
         <%= link_to edit_trip_path(@trip) do %>
         <span class="glyphicon glyphicon-pencil"></span>
-      <%end%><br>
+      <%end%>
+      <br>
       <% end %>
+
       <%= @trip.start_date.strftime("%A, %b %d, %Y")%> - <%= @trip.end_date.strftime("%A, %b %d, %Y") %><br>
       Duration: <%= @trip.duration %> days<br>
     </p>
@@ -73,10 +75,7 @@
   </div>
 </div>
 </div>
-
-<div class="container">
   <button class='email-trip-btn' value="<%= @trip.id%>">
-    <%=link_to "Email This Trip", email_trip_path %>
-  </button>
-</div>
+    <span class="glyphicon glyphicon-envelope" link_to "Email This Trip", email_trip_path></span>
+    </button>
 

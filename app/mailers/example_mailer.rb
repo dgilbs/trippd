@@ -6,5 +6,4 @@ class ExampleMailer < ApplicationMailer
     mail to: user.email, subject: 'Your upcoming trip' 
   end
 
-
 end
