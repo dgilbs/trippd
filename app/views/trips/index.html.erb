@@ -1,4 +1,3 @@
-<%= button_to "Create new trip", "/trips/new", :class => "trip-btn", :method => :get %>
 
 <% @trips.each do |trip| %>
   <% if trip.start_date != nil && trip.end_date != nil && trip.start_date > DateTime.now.to_date %>
