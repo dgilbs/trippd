@@ -31,7 +31,6 @@ $(document).on("ready", function(){
       method:"POST",
       data: {name: name, packing_list_id: packing_list_id}
     }).success(function(response, settings){
-      debugger
       $('#packing-list-' + packing_list_id).prepend("<li>" + response.name + "</li>")
       $("#new-item-name-" + packing_list_id).text("")     
       
