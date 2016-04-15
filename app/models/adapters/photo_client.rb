@@ -1,16 +1,19 @@
-# module Adapters
-#   class PhotoClient
+module Adapters
+  class PhotoClient
 
-#     def self.connection
-#       @connection ||= Adapters::FlickrConnection.new()
-#     end
+    def self.connection
+      @connection ||= Adapters::FlickrConnection.new()
+    end
 
-#     def self.find_destination_by_name(location)
-#       # 1. Has to hit my api
-#     information = connection.query({query: location})
+    def self.find_coordinates_by_name(location)
+
+      information = connection.query({query: location})
+      latitude = information.first[1].first[1]["place"].first["latitude"]
+      longitude = info.first[1].first[1]["place"].first["longitude"]
+  
+    end
+
     
-#       Artist.create(name: artist_hash["name"], url: artist_hash["images"].first["url"])
-#     end
 
-#   end 
-# end
+  end 
+end
