@@ -1,14 +1,22 @@
 <h2>Where do you want to go?</h2>
 
 <form class="search-form" id="destination-search-form">
-<input type="text" class="search-terms" placeholder="Type a city...">
-<button type="submit" class="search-destination-btn">Search</button>
+  <input type="text" class="search-terms" placeholder="Type a city...">
+    <button type="submit" class="search-destination-btn">Search</button>
 </form>
 
 <div id="search-results">
 </div>
 <br><br>
-<% @destinations.each do |destination| %>
-  <button class="trip-btn"><%= link_to destination.city, destination_path(destination)%></button>
-<% end %>
+
+<div class="row">
+  <% @destinations.each do |destination_array| %>
+    <div class="continent-div col-md-3">
+      <h2><%= destination_array.first.continent %></h2>
+      <% destination_array.each do |destination| %>
+        <button class="trip-btn"><%= link_to destination.city, destination_path(destination)%></button>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 
