@@ -28,3 +28,12 @@
 <%end%>
 </ul>
 <%end%>
+
+<% if @user.most_common_packed_items.length > 2 %>
+<h3> Here are your most packed items!</h3>
+<ul>
+<%@user.most_common_packed_items.each do |item| %>
+<li><%=item%></li>
+<%end%>
+</ul>
+<% end %>
