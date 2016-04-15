@@ -49,10 +49,8 @@ Tags:
 <small>Trip created on <%= @trip.created_at.strftime("%A, %d %b %Y")%></small>
 
 
-  <div class="packing-list">
-  <div id="new-packing-list">
+  <div id="packing-list">
 
-  </div>
   <% if @trip.packing_lists.first.id != nil %>
  
    <p>Packing Lists</p>
@@ -67,8 +65,10 @@ Tags:
 
 
   <% end%>
+  <%if @trip.packing_lists.count < 1%>
     <p>Add a packing list to your trip!</p>
     <%= render partial: 'packing_lists/form', locals: {packing_list: @packing_list, trip: @trip, user: @user} %>
+  <%end%>
   </div>
 <% end %>
 
