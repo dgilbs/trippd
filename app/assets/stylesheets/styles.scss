@@ -9,6 +9,12 @@ $flower: #353866;
 $fire: #990000;
 
 
+.glyphicon {
+  padding: 8px;
+  color: black !important;
+}
+
+
 .navbar {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 20px;
@@ -28,6 +34,8 @@ $fire: #990000;
   color: $fire !important; 
   font-weight: 700;
 }
+
+
 .navbar-brand {
   color: black !important;
   font-size: 20px !important;

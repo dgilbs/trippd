@@ -1,6 +1,11 @@
 <div class="row">
   <div class="col-md-6">
-    <p><strong><%= @trip.title %></strong><br>
+    <p><strong><%= @trip.title %></strong>  
+      <% if @trip.user == current_user %>
+        <%= link_to edit_trip_path(@trip) do %>
+        <span class="glyphicon glyphicon-pencil"></span>
+      <%end%><br>
+      <% end %>
       <%= @trip.start_date.strftime("%A, %b %d, %Y")%> - <%= @trip.end_date.strftime("%A, %b %d, %Y") %><br>
       Duration: <%= @trip.duration %> days<br>
     </p>
@@ -44,11 +49,7 @@
     <%end%>
 
     <% if @trip.user == current_user %>
-      <button class='edit-trip-btn'>
-        <%=link_to "Edit This Trip", edit_trip_path(@trip)%>
-      </button>
-      <br><br>
-
+ 
       <small>Trip created on <%= @trip.created_at.strftime("%A, %d %b %Y")%></small>
 </div>
     <div class="col-md-6">
