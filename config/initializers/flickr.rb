@@ -1,2 +1,2 @@
-Flickr.key    = ENV["flickr_key"]
-Flickr.secret = ENV["flickr_secret"]
+Figaro.env.flickr_key 
+Figaro.env.flickr_secret
