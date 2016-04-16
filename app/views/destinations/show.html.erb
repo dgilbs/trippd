@@ -1,16 +1,15 @@
 <h1>
-
+<%= @destination.city %>
 <form action="/destinations/<%= @destination.id%>/add_destination" method="GET">
 <% if current_user %> 
 <% if current_user.current_trip %>
- <%= @destination.city %><button type="submit" class='add-destination-btn' style="margin-bottom"> <span class="glyphicon glyphicon-plane"></span> </button>
+ <button type="submit" class='add-destination-btn' style="margin-bottom"> <span class="glyphicon glyphicon-plane"></span> </button>
 <% else %>
- <button class='add-destination-btn'><%= link_to "Plan a trip to #{@destination.city}", new_trip_path %></button>
+ <button class='add-destination-btn'><%= link_to "Plan a trip today!", new_trip_path %></button>
  <% end %>
  <% end %>
 </form>
-</h1> 
-</h2> 
+</h1>  
 <div class="activities-by-destination">
   <h3>Restaurants</h3>
     <ul>

@@ -64,10 +64,13 @@
               <%= render partial: 'packing_lists/packing_list', locals: {packing_list: packing_list} %><br>
             <% end %>
         <% end%>
-
+        <div id="packing-list-form">
+        <% if @trip.packing_lists.count < 1%>
         <p>Add a packing list to your trip!</p>
 
           <%= render partial: 'packing_lists/form', locals: {packing_list: @packing_list, trip: @trip, user: @user} %>
+        </div>
+        <%end%>
       </div>
 
     <% end %>

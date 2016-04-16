@@ -20,7 +20,14 @@ class DestinationsController < ApplicationController
       @search_results = Destination.search(query)
       render json: @search_results
     end
-    @destinations = Destination.order_by_city
+    north_american_cities = Destination.where(continent: "North America").order_by_city
+    south_american_cities = Destination.where(continent: "South America").order_by_city
+    european_cities = Destination.where(continent: "Europe").order_by_city
+    african_cities = Destination.where(continent: "Africa").order_by_city
+    asian_cities = Destination.where(continent: "Asia").order_by_city
+    australian_cities = Destination.where(continent: "Australia").order_by_city
+    @destinations = [north_american_cities, south_american_cities, european_cities, african_cities, asian_cities, australian_cities]
+
   end
 
   def show
@@ -31,6 +38,7 @@ class DestinationsController < ApplicationController
     @spa_fitness_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Spa/Fitness")
     @music_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Music")
     @active_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Active")
+    # Adapters::PhotoClient.find_coordinates_by_name(@destination.city) 
   end
 
 
