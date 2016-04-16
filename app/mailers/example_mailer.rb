@@ -1,10 +1,10 @@
 class ExampleMailer < ApplicationMailer
   default from: "wheecombinator@gmail.com"
 
-  def trip_email(user, trip)
+  def trip_email(email, trip)
     @trip = trip
-    @user = user
-    mail to: user.email, subject: 'Your upcoming trip' 
+    @email = email
+    mail to: @email, subject: 'Your upcoming trip' 
   end
 
 end
