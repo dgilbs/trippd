@@ -213,5 +213,12 @@ a {
 
 h1 {
   font-size: 200px !important;
+}
 
+#tellfriend {
+    position: absolute;
+    margin-top: -300px;
+    left: 400px;
+    width: 380px;
+    z-index: 1;
 }

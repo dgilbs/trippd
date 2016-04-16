@@ -7,19 +7,17 @@
     <h1>Hi <%= @user.first_name %>!</h1>
     <p>
       Here's the itinerary for your upcoming trip:<br>
-      <% x = @user.current_trip_id %>
-      <% trip = @user.trips.find(x) %>
-      <h2><%= trip.title %></h2>
-      <%= trip.start_date.strftime("%A, %b %d, %Y")%> - <%=trip.end_date.strftime("%A, %b %d, %Y")%>
+      <h2><%= @trip.title %></h2>
+      <%= @trip.start_date.strftime("%A, %b %d, %Y")%> - <%= @trip.end_date.strftime("%A, %b %d, %Y")%>
       <br>
-      Duration: <%= trip.duration %> days
+      Duration: <%= @trip.duration %> days
     <h3>Destinations:</h3>
-    <% trip.destinations.each do |destination|%>
+    <% @trip.destinations.each do |destination|%>
      <%= destination.city%><br>
     <%end%>
     <h3>Activities planned:</h3>
-    <% trip.activities.each do |activity|%>
-     <%= activity.name%><br>
+    <% @trip.activities.each do |activity|%>
+     <%= link_to activity.name, activity.link %><br>
     <%end%>
 
     </p>

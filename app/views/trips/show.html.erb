@@ -10,6 +10,7 @@
       Duration: <%= @trip.duration %> days<br>
     </p>
 
+
     <%if @trip.destinations.any?%>
       This trip will include stops in:
       <ul>
@@ -39,8 +40,6 @@
         <%end%>
       </ul>
     <%end%>
-
-
 
     <%if @trip.tags.any?%>
       Tags: 
@@ -76,8 +75,31 @@
 </div>
 </div>
 
-<div class="container">
-  <button class='email-trip-btn' value="<%= @trip.id%>">
-    <%=link_to "Email This Trip", email_trip_path %>
-  </button>
-</div>
+<button class='email-trip-btn' value="<%= @trip.id%>">
+  <span class="glyphicon glyphicon-envelope" link_to email_trip_path></span>
+</button>
+
+ <div id="tellfriend" class="contact_form">
+ <a class="close" href="#close" >Close</a>
+ <form id='tellafriend_form'>
+
+    <label for="from">Your Email: </label>
+     <input class="std_input" type="text" id="from" name="from" 
+     size="40" maxlength="35" value="" />
+
+     <label for="name">Your Name: </label>
+     <input class="std_input" type="text" id="name" name="name" 
+     size="40" maxlength="35" value="" />
+
+     <label for="to">To: </label>
+     <input class="std_input" type="text" id="to" name="to" 
+     size="40" maxlength="35" />
+
+     <label for="subject">Subject: </label>
+     <input class="std_input" type="text" id="subject" 
+     name="subject" size="40" value="Check out this trip!" />
+
+     <input type="submit" name="submit" class="form_but" 
+     value="Submit"/>
+</form> 
+ </div>
