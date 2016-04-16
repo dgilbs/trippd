@@ -7,10 +7,11 @@ $(document).ready(function() {
     $('.form_but').click(function(event) {
       event.preventDefault();
       var id = $(".email-trip-btn").val()
+      var email = $("#to").val()
       $.ajax({
         url: '/email_trip',
         method: "POST",
-        data: {id: id}
+        data: {id: id, email: email}
     }).success(function(response, setting){
       $('#tellfriend').hide();
     });
