@@ -217,8 +217,9 @@ h1 {
 
 #tellfriend {
     position: absolute;
-    margin-top: -300px;
+    top: 525px;
     left: 400px;
     width: 380px;
     z-index: 1;
+    background: $snow;
 }

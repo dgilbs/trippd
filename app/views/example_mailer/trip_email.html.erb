@@ -4,9 +4,9 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi!</h1>
+    Hi!
     <p>
-      Here's the itinerary for your upcoming trip:<br>
+      Your friend <%= @sender %> thought you might be interested in the itinerary for this trip:<br>
       <h2><%= @trip.title %></h2>
       <%= @trip.start_date.strftime("%A, %b %d, %Y")%> - <%= @trip.end_date.strftime("%A, %b %d, %Y")%>
       <br>
@@ -17,7 +17,8 @@
     <%end%>
     <h3>Activities planned:</h3>
     <% @trip.activities.each do |activity|%>
-     <%= link_to activity.name, activity.link %><br>
+     <%= link_to activity.name, activity.link, style: 'text-decoration:none; color: black' %>
+    <br>
     <%end%>
 
     </p>
