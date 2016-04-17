@@ -31,10 +31,27 @@ $(document).on("ready", function(){
       method:"POST",
       data: {name: name, packing_list_id: packing_list_id}
     }).success(function(response, settings){
-      $('#packing-list-' + packing_list_id).prepend("<li>" + response.name + "</li>")
-      $("#new-item-name-" + packing_list_id).text("")     
+      
+      $("#packing-list-" + packing_list_id).append('<li id="item-' + response.id + '"><button class="delete-item-btn">X</button>' + response.name + "</li>")
+      $("#new-item-name-").val(""); 
       
     })
+    return false;
+  })
+
+  $(document).on('click', '.delete-item-btn', function(event){
+    event.preventDefault();
+    var parent = $(this).parent()
+    var li_id = $(this).parent().attr("id").split("-")
+    var item_id = li_id[(li_id.length-1)]
+    $.ajax({
+      url:'/items/' + item_id,
+      method: 'DELETE'
+
+
+    })
+    parent.remove();
+
     return false;
   })
 

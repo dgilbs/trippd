@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/packing_lists', to: 'packing_lists#create'
   post '/items', to: 'items#create' 
   post '/email_trip', to: 'trips#send_email', as: 'email_trip'
+  delete '/items/:id', to: 'items#destroy' 
 
 
   root 'pages#home'

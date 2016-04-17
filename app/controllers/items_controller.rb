@@ -5,6 +5,12 @@ class ItemsController < ApplicationController
     render json: @item 
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @packing_list = @item.packing_list
+    @item.destroy
+  end
+
 
   private
 

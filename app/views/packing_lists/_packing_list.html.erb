@@ -1,7 +1,7 @@
 <%= packing_list.name %><br>
 <ul id="packing-list-<%=packing_list.id%>">
 <%packing_list.items.each do |item|%>
-<li><%=item.name%></li>
+<li id="item-<%=item.id%>"><button class="delete-item-btn">X</button><%=item.name%></li>
 <%end%>
 </ul>
 <form class="new-item-form" action="/items" method="POST">
