@@ -69,7 +69,8 @@ class TripsController < ApplicationController
  def send_email
     @trip = Trip.find(params[:id])
     @email = params[:email]
-    ExampleMailer.trip_email(@email, @trip).deliver_now
+    @sender = params[:sender]
+    ExampleMailer.trip_email(@email, @trip, @sender).deliver_now
     render json: {msg: "success!"}
   end
 

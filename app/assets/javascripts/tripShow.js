@@ -1,4 +1,5 @@
-$(document).on("ready", function(){
+$(document).on('ready page:load', function(){
+  $('#tellfriend').hide();
   $("#new_packing_list").submit(function(event){
     event.preventDefault();
     var name = $("#packing_list_name").val()
