@@ -19,19 +19,22 @@
             <% if @trip.user == current_user %>
               <button type="submit" class='remove-destination-btn'> <input type = "hidden" name="trip_id" value = "<%=@trip.id%>">X</button>
             <% end %>
-            <%=link_to destination.city, destination%>
+            Location: <%=link_to destination.city, destination%>
           </form>
           </li>
+       
       <% if @trip.activities.any? %>
           Activities You Have Planned:
             <ul>
-              <%@trip.activities.each do |activity|%>
+              <% @trip.activities.select do |activity| %>
+              <% if activity.destination_id == destination.id %>
                 <li>
                   <form action="/trips/<%=activity.id%>/remove_activity" method="GET">
                     <button type="submit" class='remove-activity-btn'> <input type = "hidden" name="trip_id" value = "<%=@trip.id%>">X</button>
                     <%=link_to activity.name, activity.link%>
                   </form>
                 </li>
+                <% end %>
               <%end%>
             </ul>
           <%end%>
@@ -65,13 +68,10 @@
               <%= render partial: 'packing_lists/packing_list', locals: {packing_list: packing_list} %><br>
             <% end %>
         <% end%>
-        <div id="packing-list-form">
-        <% if @user.packing_lists.count <= 1%>
+
         <p>Add a packing list to your trip!</p>
 
           <%= render partial: 'packing_lists/form', locals: {packing_list: @packing_list, trip: @trip, user: @user} %>
-        </div>
-        <%end%>
       </div>
 
     <% end %>

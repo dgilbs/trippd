@@ -8,7 +8,7 @@ module Adapters
     response.businesses.each do |business|
       name = business.name
       link = business.url
-      current_activity = Activity.find_or_create_by(name: name, link: link)
+      current_activity = Activity.find_or_create_by(name: name, link: link, destination_id: Destination.find_by(city: destination).id)
       current_activity.categories.push(Category.find_by(name: activity))
       current_activity.save
       arr << current_activity
