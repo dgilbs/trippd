@@ -13,8 +13,14 @@
 
 class DestinationsController < ApplicationController
 
+  def create
+    @query = params[:query]
+    @destination = Adapters::DestinationClient.find_destination(@query)
+    render json: @destination
+  end
+
   def index
-   
+  
     if query_params != {}
       query = query_params[:query]
       @search_results = Destination.search(query)
