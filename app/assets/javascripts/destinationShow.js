@@ -8,6 +8,8 @@
 //   }
 // })
 
+
+
 $(document).on("ready page: load", function(){
   $(".destination-add-activity").hide()
 
@@ -53,9 +55,10 @@ $(document).on("ready page: load", function(){
       method: "GET",
       data: {id: destination_id}
     }).success(function(response, settings){
-      $("#toggle-destination").toggleClass("remove-trip-destination-btn")
-      $(".destination-add-activity").show()
+      $("#toggle-destination").addClass("remove-trip-destination-btn").removeClass('add-destination-btn')
+
       $(".destination-add-activity").addClass('add-activity-btn').removeClass("destination-add-activity") 
+      $(".add-activity-btn").show()
       
     })
 
@@ -70,13 +73,17 @@ $(document).on("ready page: load", function(){
         method: "GET",
         data: {destination_id: destination_id}
       }).success(function(response, settings){
-        $("#toggle-destination").toggleClass("add-trip-destination-btn")
+        $("#toggle-destination").addClass("add-destination-btn").removeClass("remove-trip-destination-btn")
         $(".destination-add-activity").hide() 
-        $(".add-activity-btn").hide()  
+        $(".add-activity-btn").hide() 
+        $('.remove-activity-destination-btn').hide()
+
       
     })
 
   })
+
+    
 
 
 
