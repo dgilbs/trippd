@@ -23,8 +23,9 @@
         <li> <form id="add_activity_<%=restaurant.id%>" action="/destinations/<%=restaurant.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
           <input type="hidden" name="activity_id" value="<%=restaurant.id%>"></input>
+          <%if !current_user.current_trip.destinations.include?(@destination)%>
           <button class="destination-add-activity"> + </button>
-
+          <%end%>
           <% if current_user.current_trip %>
           <% if current_user.current_trip.destinations.include?(@destination) && !current_user.current_trip.activities.include?(restaurant) %>
           <button type="submit" class='add-activity-btn'> + </button>
