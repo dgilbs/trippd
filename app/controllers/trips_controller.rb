@@ -67,7 +67,6 @@ class TripsController < ApplicationController
   end
 
  def send_email
-  binding.pry
     @trip = Trip.find(params[:id])
     @email = params[:email]
     @sender = params[:sender]
