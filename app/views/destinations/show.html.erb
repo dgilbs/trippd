@@ -14,11 +14,15 @@
   <h3>Restaurants</h3>
     <ul>
       <% @restaurants.each do |restaurant| %>
-        <li> <form action="/destinations/<%=restaurant.id%>/add_activity" method="GET">
+        <li> <form id="add_activity_<%=restaurant.id%>"action="/destinations/<%=restaurant.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
+          <input type="hidden" name="activity_id" value="<%=restaurant.id%>"></input>
           <% if current_user.current_trip %>
-          <% if current_user.current_trip.destinations.include?(@destination) %>
-          <button type="submit" class='add-activity-btn'> + </button><% end %><%end%>
+          <% if current_user.current_trip.destinations.include?(@destination) && !current_user.current_trip.activities.include?(restaurant) %>
+          <button type="submit" class='add-activity-btn'> + </button>
+          <%elsif current_user.current_trip.destinations.include?(@destination) && current_user.current_trip.activities.include?(restaurant) %>
+          <button type="submit" class="remove-activity-destination-btn"> X </button>
+          <% end %><%end%>
           <%= link_to restaurant.name, restaurant.link, :target => '_blank' %></li>
           </form>
       <% end %>
@@ -29,11 +33,16 @@
   <h3>Music</h3>
     <ul>
       <% @music_activities.each do |music| %>
-        <li> <form action="/destinations/<%=music.id%>/add_activity" method="GET">
+        <li> <form id="add_activity_<%=music.id%>"action="/destinations/<%=music.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
-            <% if current_user.current_trip %>
-          <% if current_user.current_trip.destinations.include?(@destination) %>
-          <button type="submit" class='add-activity-btn'> + </button><% end %><%end%>
+          <input type="hidden" name="activity_id" value="<%=music.id%>"></input>
+          <% if current_user.current_trip %>
+          <% if current_user.current_trip.destinations.include?(@destination) && !current_user.current_trip.activities.include?(music) %>
+
+          <button type="submit" class='add-activity-btn'> + </button>
+          <%elsif current_user.current_trip.destinations.include?(@destination) && current_user.current_trip.activities.include?(music) %>
+          <button type="submit" class="remove-activity-destination-btn"> X </button>
+          <% end %><%end%>
           <%= link_to music.name, music.link, :target => '_blank' %></li>
           </form>
       <% end %>
@@ -43,11 +52,15 @@
   <h3>Active</h3>
     <ul>
       <% @active_activities.each do |active| %>
-        <li> <form action="/destinations/<%=active.id%>/add_activity" method="GET">
+        <li> <form id="add_activity_<%=active.id%>"action="/destinations/<%=active.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
-           <% if current_user.current_trip %>
-          <% if current_user.current_trip.destinations.include?(@destination) %>
-          <button type="submit" class='add-activity-btn'> + </button><% end %><%end%>
+          <input type="hidden" name="activity_id" value="<%=active.id%>"></input>
+            <% if current_user.current_trip %>
+              <% if current_user.current_trip.destinations.include?(@destination) && !current_user.current_trip.activities.include?(active) %>
+                <button type="submit" class='add-activity-btn'> + </button>
+              <%elsif current_user.current_trip.destinations.include?(@destination) && current_user.current_trip.activities.include?(active) %>
+                <button type="submit" class="remove-activity-destination-btn"> X </button>
+          <% end %><%end%>
           <%= link_to active.name, active.link, :target => '_blank' %></li>
           </form>
       <% end %>
@@ -57,11 +70,15 @@
   <h3>Cultural</h3>
     <ul>
       <% @cultural_activities.each do |cultural| %>
-        <li> <form action="/destinations/<%=cultural.id%>/add_activity" method="GET">
+        <li> <form id="add_activity_<%=cultural.id%>"action="/destinations/<%=cultural.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
-           <% if current_user.current_trip %>
-          <% if current_user.current_trip.destinations.include?(@destination) %>
-          <button type="submit" class='add-activity-btn'> + </button><% end %><%end%>
+          <input type="hidden" name="activity_id" value="<%=cultural.id%>"></input>
+            <% if current_user.current_trip %>
+              <% if current_user.current_trip.destinations.include?(@destination) && !current_user.current_trip.activities.include?(cultural) %>
+                <button type="submit" class='add-activity-btn'> + </button>
+              <%elsif current_user.current_trip.destinations.include?(@destination) && current_user.current_trip.activities.include?(cultural) %>
+                <button type="submit" class="remove-activity-destination-btn"> X </button>
+          <% end %><%end%>
           <%= link_to cultural.name, cultural.link, :target => '_blank' %></li>
 
           </form>
@@ -72,11 +89,15 @@
   <h3>Shopping</h3>
     <ul>
       <% @shopping_activities.each do |shopping| %>
-        <li> <form action="/destinations/<%=shopping.id%>/add_activity" method="GET">
+        <li> <form id="add_activity_<%=shopping.id%>"action="/destinations/<%=shopping.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
-          <% if current_user.current_trip %>
-          <% if current_user.current_trip.destinations.include?(@destination) %>
-          <button type="submit" class='add-activity-btn'> + </button><% end %><%end%>
+          <input type="hidden" name="activity_id" value="<%=shopping.id%>"></input>
+            <% if current_user.current_trip %>
+              <% if current_user.current_trip.destinations.include?(@destination) && !current_user.current_trip.activities.include?(shopping) %>
+                <button type="submit" class='add-activity-btn'> + </button>
+              <%elsif current_user.current_trip.destinations.include?(@destination) && current_user.current_trip.activities.include?(shopping) %>
+                <button type="submit" class="remove-activity-destination-btn"> X </button>
+          <% end %><%end%>
           <%= link_to shopping.name, shopping.link, :target => '_blank' %></li>
           </form>
       <% end %>
@@ -86,11 +107,15 @@
   <h3>Spa/Fitness</h3>
     <ul>
       <% @spa_fitness_activities.each do |spa_fitness| %>
-        <li> <form action="/destinations/<%=spa_fitness.id%>/add_activity" method="GET">
+        <li> <form id="add_activity_<%=spa_fitness.id%>"action="/destinations/<%=spa_fitness.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
-           <% if current_user.current_trip %>
-          <% if current_user.current_trip.destinations.include?(@destination) %>
-          <button type="submit" class='add-activity-btn'> + </button><% end %><%end%>
+          <input type="hidden" name="activity_id" value="<%=spa_fitness.id%>"></input>
+            <% if current_user.current_trip %>
+              <% if current_user.current_trip.destinations.include?(@destination) && !current_user.current_trip.activities.include?(spa_fitness) %>
+                <button type="submit" class='add-activity-btn'> + </button>
+              <%elsif current_user.current_trip.destinations.include?(@destination) && current_user.current_trip.activities.include?(spa_fitness) %>
+                <button type="submit" class="remove-activity-destination-btn"> X </button>
+          <% end %><%end%>
           <%= link_to spa_fitness.name, spa_fitness.link, :target => '_blank' %></li>
           </form>
       <% end %>
