@@ -9,7 +9,7 @@
 // })
 
 $(document).on("ready page: load", function(){
-  $(".add-activity-btn").click(function(event){
+  $(document).on('click', ".add-activity-btn", function(event){
     event.preventDefault();
     var parent = $(this).parent()
     var destination_id = parent[0].destination_id.value
