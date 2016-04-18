@@ -8,8 +8,12 @@ module Adapters
       @connection = self.class
     end
 
-    def query(query)
-      self.class.get("https://api.flickr.com/services/rest/?method=flickr.places.find&api_key=#{API_KEY}&query=", {query: query})
+    def query(method, query)
+      self.class.get("https://api.flickr.com/services/rest/?method=#{method}&api_key=#{API_KEY}&query=#{query}")
+    end
+
+     def photo_query(method, tag, latitude, longitude)
+      self.class.get("https://api.flickr.com/services/rest/?method=#{method}&api_key=#{API_KEY}&tag=#{tag}&privacy_filter=1&accuracy=11&content_type=1&has_geo=1&lat=#{latitude}&lon=#{longitude}&limit=1&is_getty=1")
     end
 
 

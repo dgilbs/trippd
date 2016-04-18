@@ -38,7 +38,9 @@ class DestinationsController < ApplicationController
     @spa_fitness_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Spa/Fitness")
     @music_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Music")
     @active_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Active")
-    # Adapters::PhotoClient.find_coordinates_by_name(@destination.city) 
+    # coords = Adapters::PhotoClient.find_coordinates_by_name(@destination.city) 
+    # Adapters::PhotoClient.find_photo_by_coordinates(coords, @destination.city)
+    
   end
 
 

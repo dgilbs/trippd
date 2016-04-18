@@ -67,7 +67,7 @@ class TripsController < ApplicationController
   end
 
  def send_email
-  binding.pry
+  
     @trip = Trip.find(params[:id])
     @email = params[:email]
     @sender = params[:sender]
@@ -80,7 +80,8 @@ class TripsController < ApplicationController
     @destination = Destination.find(params[:id])
     @trip.destinations << @destination if !(@trip.destinations.include?(@destination))
     @trip.save
-    redirect_to destination_path(@destination)
+
+    render json: @trip
   end
 
   def add_activity
@@ -89,7 +90,8 @@ class TripsController < ApplicationController
     @activity = Activity.find(params[:id])
     @trip.activities << @activity if !(@trip.activities.include?(@activity))
     @trip.save
-    redirect_to destination_path(@destination)
+
+    render json: @trip
   end
 
   def remove_destination
