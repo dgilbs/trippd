@@ -103,12 +103,11 @@ class TripsController < ApplicationController
   end
 
   def remove_activity
-    binding.pry
-    @activity = Activity.find(params[:id])
-    @trip = Trip.find(params[:trip_id])
+    @activity = Activity.find(params[:activity_id])
+    @trip = Trip.find(current_user.current_trip_id)
     @trip.activities.delete(@activity)
     @trip.save
-    redirect_to @trip
+    render json: @activity
   end
 
   private
