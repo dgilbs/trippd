@@ -9,7 +9,9 @@
 // })
 
 $(document).on("ready page: load", function(){
-  $(".add-activity-btn").click(function(event){
+  $(".destination-add-activity").hide()
+
+  $(document).on('click', '.add-activity-btn', function(event){
     event.preventDefault();
     var parent = $(this).parent()
     var destination_id = parent[0].destination_id.value
@@ -40,6 +42,40 @@ $(document).on("ready page: load", function(){
 
     })
     return false;
+  })
+
+  $(document).on('click', '.add-destination-btn', function(event){
+    event.preventDefault();
+    var destination_id = $("#destination_id").val()
+
+    $.ajax({
+      url: '/destinations/' + destination_id + '/add_destination',
+      method: "GET",
+      data: {id: destination_id}
+    }).success(function(response, settings){
+      $("#toggle-destination").toggleClass("remove-trip-destination-btn")
+      $(".destination-add-activity").show()
+      $(".destination-add-activity").addClass('add-activity-btn').removeClass("destination-add-activity") 
+      
+    })
+
+  })
+
+    $(document).on('click', '.remove-trip-destination-btn', function(event){
+      event.preventDefault();
+      var destination_id = $("#destination_id").val()
+
+      $.ajax({
+        url: '/destinations/' + destination_id + '/remove_destination',
+        method: "GET",
+        data: {destination_id: destination_id}
+      }).success(function(response, settings){
+        $("#toggle-destination").toggleClass("add-trip-destination-btn")
+        $(".destination-add-activity").hide() 
+        $(".add-activity-btn").hide()  
+      
+    })
+
   })
 
 

@@ -80,7 +80,7 @@ class TripsController < ApplicationController
     @destination = Destination.find(params[:id])
     @trip.destinations << @destination if !(@trip.destinations.include?(@destination))
     @trip.save
-    redirect_to destination_path(@destination)
+    render json: @destination
   end
 
   def add_activity
@@ -94,12 +94,12 @@ class TripsController < ApplicationController
   end
 
   def remove_destination
-    @destination = Destination.find(params[:id])
-    @trip = Trip.find(params[:trip_id])
+    @destination = Destination.find(params[:destination_id])
+    @trip = Trip.find(current_user.current_trip_id)
     @trip.destinations.delete(@destination)
     @trip.delete_dependent_activities(@destination)
     @trip.save
-    redirect_to @trip
+    render json: @destination
   end
 
   def remove_activity

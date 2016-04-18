@@ -3,7 +3,13 @@
 <form action="/destinations/<%= @destination.id%>/add_destination" method="GET">
 <% if current_user %> 
 <% if current_user.current_trip %>
- <button type="submit" class='add-destination-btn' style="margin-bottom"> <span class="glyphicon glyphicon-plane"></span> </button>
+  <% if !current_user.current_trip.destinations.include?(@destination)%>
+    <button type="submit" id="toggle-destination"class='add-destination-btn' style="margin-bottom"> <span class="glyphicon glyphicon-plane"></span> </button>
+    <input type="hidden" id="destination_id" name='destination_id' value='<%=@destination.id%>'>
+  <%elsif current_user.current_trip.destinations.include?(@destination)%>
+    <button type="submit" id="toggle-destination"class='remove-trip-destination-btn' style="margin-bottom"> <span class="glyphicon glyphicon-plane"></span> </button>
+    <input type="hidden" id="destination_id" name='destination_id' value='<%=@destination.id%>'>
+  <%end%>
 <% else %>
  <button class='add-destination-btn'><%= link_to "Plan a trip today!", new_trip_path %></button>
  <% end %>
@@ -14,9 +20,11 @@
   <h3>Restaurants</h3>
     <ul>
       <% @restaurants.each do |restaurant| %>
-        <li> <form id="add_activity_<%=restaurant.id%>"action="/destinations/<%=restaurant.id%>/add_activity" method="GET">
+        <li> <form id="add_activity_<%=restaurant.id%>" action="/destinations/<%=restaurant.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
           <input type="hidden" name="activity_id" value="<%=restaurant.id%>"></input>
+          <button class="destination-add-activity"> + </button>
+
           <% if current_user.current_trip %>
           <% if current_user.current_trip.destinations.include?(@destination) && !current_user.current_trip.activities.include?(restaurant) %>
           <button type="submit" class='add-activity-btn'> + </button>
@@ -36,6 +44,7 @@
         <li> <form id="add_activity_<%=music.id%>"action="/destinations/<%=music.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
           <input type="hidden" name="activity_id" value="<%=music.id%>"></input>
+          <button class="destination-add-activity"> + </button>
           <% if current_user.current_trip %>
           <% if current_user.current_trip.destinations.include?(@destination) && !current_user.current_trip.activities.include?(music) %>
 
@@ -55,6 +64,7 @@
         <li> <form id="add_activity_<%=active.id%>"action="/destinations/<%=active.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
           <input type="hidden" name="activity_id" value="<%=active.id%>"></input>
+          <button class="destination-add-activity"> + </button>
             <% if current_user.current_trip %>
               <% if current_user.current_trip.destinations.include?(@destination) && !current_user.current_trip.activities.include?(active) %>
                 <button type="submit" class='add-activity-btn'> + </button>
@@ -73,6 +83,7 @@
         <li> <form id="add_activity_<%=cultural.id%>"action="/destinations/<%=cultural.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
           <input type="hidden" name="activity_id" value="<%=cultural.id%>"></input>
+          <button class="destination-add-activity"> + </button>
             <% if current_user.current_trip %>
               <% if current_user.current_trip.destinations.include?(@destination) && !current_user.current_trip.activities.include?(cultural) %>
                 <button type="submit" class='add-activity-btn'> + </button>
@@ -92,6 +103,7 @@
         <li> <form id="add_activity_<%=shopping.id%>"action="/destinations/<%=shopping.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
           <input type="hidden" name="activity_id" value="<%=shopping.id%>"></input>
+          <button class="destination-add-activity"> + </button>
             <% if current_user.current_trip %>
               <% if current_user.current_trip.destinations.include?(@destination) && !current_user.current_trip.activities.include?(shopping) %>
                 <button type="submit" class='add-activity-btn'> + </button>
@@ -110,6 +122,7 @@
         <li> <form id="add_activity_<%=spa_fitness.id%>"action="/destinations/<%=spa_fitness.id%>/add_activity" method="GET">
           <input type="hidden" name="destination_id" value="<%=@destination.id%>"></input>
           <input type="hidden" name="activity_id" value="<%=spa_fitness.id%>"></input>
+          <button class="destination-add-activity"> + </button>
             <% if current_user.current_trip %>
               <% if current_user.current_trip.destinations.include?(@destination) && !current_user.current_trip.activities.include?(spa_fitness) %>
                 <button type="submit" class='add-activity-btn'> + </button>
