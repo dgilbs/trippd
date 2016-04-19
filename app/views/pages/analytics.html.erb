@@ -1,9 +1,10 @@
 <div class="row">
-<div class="col-md-7">
+<div class="col-md-6">
 <p>
 Most Popular Destination(s): <br>
 <% @most_popular_destinations.each do |destination| %>
 <%= link_to(destination.city, destination_path(destination)) %> || Total trips: <%= @destinations.total_trips_to(destination.city) %>
+<br>
 <% end %>
 </p>
 
@@ -55,8 +56,8 @@ Average budget for people born bw 1990 and 1999: $<%= @nineties %>.
 </p>
 
 </div>
-<div class="col-md-5">
-Cities + Trips Planned <br>
+<div class="col-md-6">
+Cities + Trips Planned: <br>
 <% @city_and_visits.sort.each do |city|  %>
   <%= city %>
   <br>
