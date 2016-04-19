@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
   def home
+    @destinations = Destination.popular_destinations
   end
 
   def analytics

@@ -1,6 +1,29 @@
 <div class="center jumbotron specialjum">
   <div class="over container body-content center text-center">
-    <h1>Trip'd
-    </h1>
+    <h1>Trip'd</h1>
+   </div>
   </div>
+    <div class="homepage-col">
+      <div class="row">
+
+        <div class="homepage-div col-md-3">
+          Most Popular Destinations
+          <ul class="popular-cities">
+            <% @destinations.each do |destination| %>
+              <li ><%= link_to destination.city, destination_path(destination) %></li>
+            <% end %>
+            </ul>
+        </div>
+
+        <div class="homepage-div col-md-3">
+          <%= link_to "Plan A New Trip", new_trip_path %>
+        </div>
+
+        <div class="homepage-div col-md-3">
+        <%= link_to "Browse Destinations", destinations_path %> 
+        </div>
+         <span class="stretch"></span>
+
+
+    </div>
 </div>
