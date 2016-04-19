@@ -1,7 +1,7 @@
 destinations = Destination.create([
-  {city: "Portland", state: "Oregon", country: "United States", continent: "North America"},
-  {city: "New York", state: "New York", country: "United States", continent: "North America"},
-  {city: "Vancouver", country: "Canada", continent: "North America"},
+  {city: "Portland", state: "Oregon", country: "US", continent: "North America"},
+  {city: "New York", state: "New York", country: "US", continent: "North America"},
+  {city: "Vancouver", country: "CA", continent: "North America"},
   {city: "Buenos Aires", country: "Argentina", continent: "South America"},
   {city: "Lima", country: "Peru", continent: "South America"},
   {city: "Toronto", country: "Canada", continent: "North America"},
@@ -15,18 +15,18 @@ destinations = Destination.create([
   {city: "Mexico City", country: "Mexico", continent: "South America"},
   {city: "Oaxaca", country: "Mexico", continent: "South America"},
   {city: "Rio de Janeiro", country: "Brazil", continent: "South America"},
-  {city: "Austin", state: "Texas", country: "United States", continent: "North America"},
-  {city: "Boston", state: "Massachusetts", country: "United States", continent: "North America"},
+  {city: "Austin", state: "Texas", country: "US", continent: "North America"},
+  {city: "Boston", state: "Massachusetts", country: "US", continent: "North America"},
   {city: "London", country: "England", continent: "Europe"},
-  {city: "San Francisco", state: "California", country: "United States", continent: "North America"},
-  {city: "Los Angeles", state: "California", country: "United States", continent: "North America"},
-  {city: "Charleston", state: "South Carolina", country: "United States", continent: "North America"},
-  {city: "Nashville", state: "Tennessee", country: "United States", continent: "North America"},
-  {city: "New Orleans", state: "Louisiana", country: "United States", continent: "North America"},
+  {city: "San Francisco", state: "California", country: "US", continent: "North America"},
+  {city: "Los Angeles", state: "California", country: "US", continent: "North America"},
+  {city: "Charleston", state: "South Carolina", country: "US", continent: "North America"},
+  {city: "Nashville", state: "Tennessee", country: "US", continent: "North America"},
+  {city: "New Orleans", state: "Louisiana", country: "US", continent: "North America"},
   {city: "Cape Town", country: "South Africa", continent: "Africa"},
   {city: "Johannesburg", country: "South Africa", continent: "Africa"},
   {city: "Sydney", country: "Australia", continent: "Australia"},
-  {city: "Denver", state: "Colorado", country: "United States", continent: "North America"}
+  {city: "Denver", state: "Colorado", country: "US", continent: "North America"}
   ])
 
 categories = Category.create([
