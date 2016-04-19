@@ -55,9 +55,6 @@ class Trip < ActiveRecord::Base
     else 
       self.range = "$$$$"
     end
-    # $ = $50 or less, $$ = 50-100, $$$ = $100-150, $$$$ = $200+
-    # set variable, or maybe we should add another attribute (range?)
-    # to trip that we can set (ex. self.range = $, etc.) 
   end
 
   def cost_per_person
@@ -66,19 +63,10 @@ class Trip < ActiveRecord::Base
 
   def most_common_tag
     self.tags.group('tags.name').order('count_id desc').limit(1).count('id')
-    #returns key, value pair ({"budget"=>3}), would be good for chartkick
   end
 
   def top_three_tags
     self.tags.group('tags.name').order('count_id desc').limit(3).count('id')
-  end
-
-  def budget_status
-    @budget = self.budget_to_range
-    
-    # activities = self.destinations.activities
-    # sum(self.activities.cost)
-    # calculates sum of activity costs and compares to budget
   end
 
   def delete_dependent_activities(dest)

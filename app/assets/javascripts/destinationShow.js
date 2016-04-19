@@ -46,6 +46,7 @@ $(document).on("ready page: load", function(){
       $("#toggle-destination").addClass("remove-trip-destination-btn").removeClass('add-destination-btn')
 
       $(".destination-add-activity").addClass('add-activity-btn').removeClass("destination-add-activity") 
+      $(".destination-add-activity").hide()
       $(".add-activity-btn").show()
       
     })

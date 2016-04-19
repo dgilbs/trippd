@@ -109,6 +109,23 @@ class TripsController < ApplicationController
     render json: @activity
   end
 
+  def remove_destination_from_trip
+    @destination = Destination.find(params[:destination_id])
+    @trip = Trip.find(current_user.current_trip_id)
+    @trip.destinations.delete(@destination)
+    @trip.delete_dependent_activities(@destination)
+    @trip.save
+    redirect_to @trip
+  end
+
+  def remove_activity_from_trip
+    @activity = Activity.find(params[:activity_id])
+    @trip = Trip.find(current_user.current_trip_id)
+    @trip.activities.delete(@activity)
+    @trip.save
+    redirect_to @trip
+  end
+
   private
 
   def trip_params

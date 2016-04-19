@@ -1,18 +1,17 @@
-$(document).ready(function(){
+$(document).on('ready page:load', function(){
   $('.search-destination-btn').click(function(e){
     e.preventDefault();
     var query = $('.search-terms').val();
     $.ajax({
       url: '/destinations',
-      method: 'GET',
+      method: 'POST',
       data: {query: query}
     }).success(function(response, settings){
-      for(var i=0; i < response.length; i++){
-        var city = response[i].city;
-        var  id = response[i].id;
-        $('#search-results').append('<button class="trip-btn"><a href="/destinations/' + id +'">'+ city + '</button>');
-      }
+      city = response["city"];
+      state = response["state"];
+      country = response["country"];
+      id = response["id"]; 
+        $('#search-results').append('<button class="trip-btn"><a href="/destinations/' + id + '">' + city + '</button>');
     })
-
   })
 })
