@@ -174,8 +174,17 @@ h3 {
 .new-trip-btn {
   background: $snow;
   font-size: 20px;
-  color: black; 
+  color: $snow; 
   border: none;
+}
+
+.new-destination-btn {
+  background: $alge;
+  font-size: 20px;
+  text-color: black; 
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .activities-by-destination {

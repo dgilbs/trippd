@@ -11,7 +11,9 @@
       Duration: <%= @trip.duration %> days<br>
         <% if @trip.user == current_user %>
  
-      <small>Trip created on <%= @trip.created_at.strftime("%A, %d %b %Y")%></small>
+      <small>Trip created on <%= @trip.created_at.strftime("%A, %d %b %Y")%></small><br>
+      <p>
+      <a class="new-destination-btn" href="/destinations/">Start Adding Destinations</a></p>
 
 
     <div class="itinerary-div">
