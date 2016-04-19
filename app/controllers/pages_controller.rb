@@ -24,11 +24,9 @@ class PagesController < ApplicationController
     @eighties = @users.avg_budget_per_age_range("1980-01-01", "1989-12-31")
     @nineties = @users.avg_budget_per_age_range("1990-01-01", "1999-12-31")
     @avg_guest_amount = @trips.avg_number_of_guests_per_trip
-    @total_trips_to_paris = @destinations.total_trips_to("Paris")
-    @total_trips_to_nyc = @destinations.total_trips_to("New York")
-    @total_trips_to_portland = @destinations.total_trips_to("Portland")
+    @all_the_cities = @destinations.all_cities
+    @city_and_visits = @destinations.total_trips_to_each_destination(@all_the_cities)
   end
-
-
+   
 
 end

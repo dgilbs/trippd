@@ -35,6 +35,17 @@ class Destination < ActiveRecord::Base
     end
   end
 
+ def self.all_cities
+    self.all.map do |destination|
+      destination.city
+    end
+  end
+
+  def self.total_trips_to_each_destination(array)
+    array.map do |city|
+    "#{city}: " + self.total_trips_to(city).to_s
+    end
+  end    
 
   def self.search(query)
     where('city LIKE ? OR country LIKE ?', "%#{query}%", "%#{query}%")

@@ -1,10 +1,18 @@
-Most Popular Destination(s):
-<ul>
+<div class="row">
+<div class="col-md-7">
+<p>
+Most Popular Destination(s): <br>
 <% @most_popular_destinations.each do |destination| %>
-<li><%= link_to(destination.city, destination_path(destination)) %> Total trips: <%= @destinations.total_trips_to(destination.city) %> </li> 
+<%= link_to(destination.city, destination_path(destination)) %> || Total trips: <%= @destinations.total_trips_to(destination.city) %>
 <% end %>
-</ul>
+</p>
 
+<% if @avg_guest_amount > 0 %>
+<p>
+Average guests per a trip <%= @avg_guest_amount %>.
+<% end %>
+
+</p>
 <% if @thirties > 0 %>
 <p> 
   Average budget for people born bw 1930 and 1939: $<%= @thirties %>.
@@ -36,10 +44,9 @@ Average budget for people born bw 1970 and 1979: $<%= @seventies %>.
 </p>
 
 <% if @eighties > 0 %>
-<p>
 Average budget for people born bw 1980 and 1989: $<%= @eighties %>.
 <% end %>
-</p>
+
 
 <% if @nineties > 0 %>
 <p>
@@ -47,26 +54,14 @@ Average budget for people born bw 1990 and 1999: $<%= @nineties %>.
 <% end %>
 </p>
 
-<% if @avg_guest_amount > 0 %>
-<p>
-Average guests per a trip <%= @avg_guest_amount %>.
+</div>
+<div class="col-md-5">
+Cities + Trips Planned <br>
+<% @city_and_visits.sort.each do |city|  %>
+  <%= city %>
+  <br>
 <% end %>
-</p>
+</div>
 
-<% if @total_trips_to_paris > 0 %>
-<p>
-Total trips to Paris: <%= @total_trips_to_paris %>.
-<% end %>
-</p>
 
-<% if @total_trips_to_nyc > 0 %>
-<p>
-Total trips to NYC: <%= @total_trips_to_nyc %>.
-<% end %>
-</p>
-
-<% if @total_trips_to_portland > 0 %>
-<p>
-Total trips to Portland: <%= @total_trips_to_portland %>.
-<% end %>
-</p>
+</div>
