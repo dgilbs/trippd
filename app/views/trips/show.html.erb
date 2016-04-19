@@ -1,19 +1,25 @@
 <div class="row">
   <div class="col-md-6">
-    <h2><%= @trip.title %></h2> 
-    <p>Trip Details:
-      <% if @trip.user == current_user %>
+    <h2><%= @trip.title %><% if @trip.user == current_user %>
         <%= link_to edit_trip_path(@trip) do %>
         <span class="glyphicon glyphicon-pencil"></span>
       <%end%><br>
-      <% end %></p>
+      <% end %></h2> 
+    
+      
       <%= @trip.start_date.strftime("%A, %b %d, %Y")%> - <%= @trip.end_date.strftime("%A, %b %d, %Y") %><br>
       Duration: <%= @trip.duration %> days<br>
-   
+        <% if @trip.user == current_user %>
+ 
+      <small>Trip created on <%= @trip.created_at.strftime("%A, %d %b %Y")%></small>
 
 
+    <div class="itinerary-div">
+    <br><br>
     <%if @trip.destinations.any?%>
-      Cities visiting:
+     Itinerary:<br>
+      <button class="edit-trip-itinerary-btn">Edit Itinerary
+      </button>
       <ul>
         <%@trip.destinations.each do |destination|%>
         <li>
@@ -27,7 +33,7 @@
           </li>
        
       <% if @trip.activities.any? %>
-          Activities You Have Planned:
+          Activities:
             <ul>
               <% @trip.activities.select do |activity| %>
               <% if activity.destination_id == destination.id %>
@@ -46,6 +52,7 @@
         <%end%>
       </ul>
     <%end%>
+    </div>
 
     <%if @trip.tags.any?%>
       Tags: 
@@ -55,11 +62,11 @@
       </ul>
     <%end%>
 
-    <% if @trip.user == current_user %>
- 
-      <small>Trip created on <%= @trip.created_at.strftime("%A, %d %b %Y")%></small>
+  
 </div>
+
     <div class="col-md-6">
+    <br><br>
       <div class="packing-list">
         <div id="new-packing-list">
         </div>
@@ -84,6 +91,7 @@
   </div>
 </div>
 </div>
+
 
 <div class="col-md-6">
 

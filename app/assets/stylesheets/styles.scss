@@ -23,6 +23,15 @@ $fire: #990000;
   border-radius: 5px;
 }
 
+.submit-item-btn {
+  background: $ocean;
+  font-size: 20px;
+  color: white; 
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
 .popular-cities {
  text-transform: capitalize;
  color: $grass;
@@ -82,7 +91,7 @@ a {
 }
 
 #blue a {
-  color: $fire !important; 
+  color: #ED143D !important; 
   font-weight: 700;
 }
 
@@ -130,12 +139,31 @@ td {
 
 h2 {
   font-size: 40px;
-  color: $grass !important;
+  color: black;
 }
 
 h3 {
   color: $grass
 }
+
+.itinerary-div {
+  outline: $grass;
+
+
+}
+
+.edit-trip-itinerary-btn {
+  font-weight: 400;
+  background: #ED143D;
+  font-size: 15px;
+  color: white;
+  padding: 10px 15px;
+  margin: 10px 0px;
+  border: none;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+
 .search-destination-btn {
   background: $snow;
   font-size: 20px;
@@ -188,6 +216,7 @@ form {
   background: $snow;
   border: none;
 }
+
 
 .remove-activity-destination-btn{
   color: $fire;

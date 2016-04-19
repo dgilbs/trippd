@@ -1,5 +1,14 @@
 $(document).on('ready page:load', function(){
   $('#tellfriend').hide();
+  $('.remove-activity-btn').hide();
+  $('.remove-destination-btn').hide();
+
+  $('.edit-trip-itinerary-btn').click(function(){
+    $('.remove-activity-btn').toggle();
+    $('.remove-destination-btn').toggle();
+  })
+
+
   $("#new_packing_list").submit(function(event){
     event.preventDefault();
     var name = $("#packing_list_name").val()
