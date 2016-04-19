@@ -1,27 +1,28 @@
 <div class="row">
   <div class="col-md-6">
-    <p><strong><%= @trip.title %></strong>  
+    <h2><%= @trip.title %></h2> 
+    <p>Trip Details:
       <% if @trip.user == current_user %>
         <%= link_to edit_trip_path(@trip) do %>
         <span class="glyphicon glyphicon-pencil"></span>
       <%end%><br>
-      <% end %>
+      <% end %></p>
       <%= @trip.start_date.strftime("%A, %b %d, %Y")%> - <%= @trip.end_date.strftime("%A, %b %d, %Y") %><br>
       Duration: <%= @trip.duration %> days<br>
-    </p>
+   
 
 
     <%if @trip.destinations.any?%>
-      This trip will include stops in:
+      Cities visiting:
       <ul>
         <%@trip.destinations.each do |destination|%>
         <li>
           <form action="/destinations/<%=destination.id%>/remove_destination_from_trip" method="DELETE"> 
-            <% if @trip.user == current_user %>
+            
+            <h2><% if @trip.user == current_user %>
               <button type="submit" class='remove-destination-btn'> <input type = "hidden" name="trip_id" value = "<%=@trip.id%>">X</button>
               <input type="hidden" name="destination_id" value="<%=destination.id%>">
-            <% end %>
-            Location: <%=link_to destination.city, destination%>
+            <% end %><%=link_to destination.city, destination%></h2>
           </form>
           </li>
        
