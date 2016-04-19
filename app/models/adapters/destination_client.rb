@@ -20,7 +20,8 @@ module Adapters
     response = Yelp.client.search(destination)
     city = response.businesses.first.location.city
     state = response.businesses.first.location.state_code
-    destination = Destination.find_or_create_by(city: city, state: state)
+    country = response.businesses.first.location.country_code
+    destination = Destination.find_or_create_by(city: city, state: state, country: country)
   end
 
 
