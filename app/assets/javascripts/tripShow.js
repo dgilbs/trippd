@@ -22,8 +22,7 @@ $(document).on('ready page:load', function(){
 
   })
 
-
-
+  $(document).off('click', '.submit-item-btn');
   $(document).on('click', '.submit-item-btn', function(event){
     event.preventDefault();
     var name = $("#new-item-name").val();
