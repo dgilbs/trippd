@@ -26,7 +26,7 @@ class DestinationsController < ApplicationController
       @search_results = Destination.search(query)
       render json: @search_results
     end
-    north_american_cities = Destination.where(country: "US").order_by_city
+    north_american_cities = Destination.where(country: "United States").order_by_city
     south_american_cities = Destination.where(continent: "South America").order_by_city
     european_cities = Destination.where(continent: "Europe").order_by_city
     african_cities = Destination.where(continent: "Africa").order_by_city

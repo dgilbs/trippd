@@ -27,6 +27,14 @@ class Destination < ActiveRecord::Base
   #   end
   # end
 
+  def self.popular_destinations
+    top_destinations = TripDestination.group(:destination_id).count
+    top_destinations = top_destinations.keys.first(3)
+    top_destinations.map! do |destination|
+      Destination.find(destination)
+    end
+  end
+
  def self.handles_tie_for_most_popular
   most_popular = TripDestination.group(:destination_id).count
   final = most_popular.map { |k, v| k if v == most_popular.values.max }
