@@ -75,7 +75,7 @@
         <p>Add a packing list to your trip!</p>
 
           <%= render partial: 'packing_lists/form', locals: {packing_list: @packing_list, trip: @trip, user: @user} %>
-      </div>
+       </div>
       <% end %>
       </div>
 
@@ -84,32 +84,36 @@
 </div>
 </div>
 
-<button class='email-trip-btn' value="<%= @trip.id%>">
-  <span class="glyphicon glyphicon-envelope" link_to email_trip_path></span>
-</button>
+<div class="col-md-6">
 
- <div id="tellfriend" class="contact_form">
- <a class="close" href="#close" >Close</a>
- <form id='tellafriend_form'>
+  <button class='email-trip-btn' value="<%= @trip.id%>">
+    <span class="glyphicon glyphicon-envelope" ></span>
+  </button>
 
-    <label for="from">Your Email: </label>
-     <input class="std_input" type="text" id="from" name="from" 
-     size="40" maxlength="35" value="" />
+  <div id="tellfriend" class="contact_form">
+    <a class="close" href="#close"> Close</a>
+     <form id='tellafriend_form'>
 
-     <label for="name">Your Name: </label>
-     <input class="std_input" type="text" id="name" name="name" 
-     size="40" maxlength="35" value="" />
+        <label for="from">Your Email: </label>
+         <input class="std_input" type="text" id="from" name="from" 
+         size="40" maxlength="35" value="" >
 
-     <label for="to">To: </label>
-     <input class="std_input" type="text" id="to" name="to" 
-     size="40" maxlength="35" />
+         <label for="name">Your Name: </label>
+         <input class="std_input" type="text" id="name" name="name" 
+         size="40" maxlength="35" value="" >
 
-     <label for="subject">Subject: </label>
-     <input class="std_input" type="text" id="subject" 
-     name="subject" size="40" value="Check out this trip!" />
+         <label for="to">To: </label>
+         <input class="std_input" type="text" id="to" name="to" 
+         size="40" maxlength="35" >
 
-     <input type="submit" name="submit" class="form_but" 
-     value="Submit"/>
-</form> 
+         <label for="subject">Subject: </label>
+         <input class="std_input" type="text" id="subject" 
+         name="subject" size="40" value="Check out this trip!" >
+
+         <input type="submit" name="submit" class="form_but" 
+         value="Submit">
+    </form> 
+  </div>
+
  </div>
 

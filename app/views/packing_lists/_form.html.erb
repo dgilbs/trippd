@@ -3,6 +3,6 @@
   <p><%= f.label :name %>
   <%= f.text_field :name %></p>
   <%= f.hidden_field :trip_id, value: trip.id%>
-  <%= f.submit %>
+  <%= f.submit "Submit", :class => "packing-list-submit" %>
 
 <% end %>

@@ -14,6 +14,15 @@ $fire: #990000;
   color: black !important;
 }
 
+.packing-list-submit {
+  background: $ocean;
+  font-size: 20px;
+  color: white; 
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
 .popular-cities {
  text-transform: capitalize;
  color: $grass;
@@ -88,11 +97,16 @@ a {
   padding: 4px;
 }
 
+.glyphicon-envelope {
+  font-size: 2em;
+  color: $salmon !important;
+}
 .email-trip-btn {
   background: $grass;
   color: $snow;
   border: none;
   background: white !important;
+  margin-left: 80px;
 }
 
 .container {
@@ -256,13 +270,11 @@ form {
 }
 
 .submit-trip-btn{
-  font-weight: 700;
-  background: $sun;
-  font-size: 15px;
-  color: $ocean;
-  padding: 15px 20px;
-  margin: 10px 10px;
+  background: $ocean;
+  font-size: 20px;
+  color: white; 
   border: none;
+  padding: 5px 10px;
   border-radius: 5px;
 }
 
