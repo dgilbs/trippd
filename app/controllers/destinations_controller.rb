@@ -38,13 +38,13 @@ class DestinationsController < ApplicationController
 
   def show
     @destination = set_destination
-    @restaurants = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Restaurants")
-    @shopping_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Shopping")
-    @cultural_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Cultural")
-    @spa_fitness_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Spa/Fitness")
-    @music_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Music")
-    @active_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Active")
-    # Adapters::PhotoClient.find_coordinates_by_name(@destination.city) 
+    restaurants = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Restaurants")
+    shopping_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Shopping")
+    cultural_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Cultural")
+    spa_fitness_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Spa/Fitness")
+    music_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Music")
+    active_activities = Adapters::DestinationClient.find_activity_by_location(@destination.city, "Active")
+    @all_activities = [restaurants, shopping_activities, cultural_activities, spa_fitness_activities, music_activities, active_activities]
   end
 
 
