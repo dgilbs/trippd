@@ -178,7 +178,7 @@ class User < ActiveRecord::Base
     if budget.empty?
       0
     else
-      budget.sum / budget.length
+      budget.compact.sum / budget.compact.length
     end
   end
 

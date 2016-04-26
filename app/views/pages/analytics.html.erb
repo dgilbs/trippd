@@ -8,7 +8,7 @@ Most Popular Destination(s): <br>
 <% end %>
 </p>
 
-<% if @avg_guest_amount > 0 %>
+<% if @trips.count > 0 %>
 <p>
 Average guests per a trip <%= @avg_guest_amount %>.
 <% end %>
