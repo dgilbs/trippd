@@ -12,60 +12,58 @@
         <% if @trip.user == current_user %>
  
       <small>Trip created on <%= @trip.created_at.strftime("%A, %d %b %Y")%></small><br>
-      <p>
-      <a class="new-destination-btn" href="/destinations/">Start Adding Destinations</a></p>
+      <p><br>
+      <a class="new-destination-btn" href="/destinations/">Add Destinations</a></p>
 
 
     <div class="itinerary-div">
-    <br><br>
-    <%if @trip.destinations.any?%>
-     Itinerary:<br>
-      <button class="edit-trip-itinerary-btn">Edit Itinerary
-      </button>
-      <ul>
-        <%@trip.destinations.each do |destination|%>
-        <li>
-          <form action="/destinations/<%=destination.id%>/remove_destination_from_trip" method="DELETE"> 
-            
-            <h2><% if @trip.user == current_user %>
-              <button type="submit" class='remove-destination-btn'> <input type = "hidden" name="trip_id" value = "<%=@trip.id%>">X</button>
-              <input type="hidden" name="destination_id" value="<%=destination.id%>">
-            <% end %><%=link_to destination.city, destination%></h2>
-          </form>
+      <br><br>
+      <%if @trip.destinations.any?%>
+       Itinerary:<br>
+        <button class="edit-trip-itinerary-btn">Edit Itinerary</button>
+        <ul>
+          <%@trip.destinations.each do |destination|%>
+          <li>
+            <form action="/destinations/<%=destination.id%>/remove_destination_from_trip" method="DELETE"> 
+              <h2>
+                <% if @trip.user == current_user %>
+                  <button type="submit" class='remove-destination-btn'> <input type = "hidden" name="trip_id" value = "<%=@trip.id%>">X</button>
+                  <input type="hidden" name="destination_id" value="<%=destination.id%>">
+                <% end %><%=link_to destination.city, destination%>
+              </h2>
+            </form>
           </li>
-       
-      <% if @trip.activities.any? %>
+         
+        <% if @trip.activities.any? %>
           Activities:
-            <ul>
-              <% @trip.activities.select do |activity| %>
-              <% if activity.destination_id == destination.id %>
-                <li>
-                  <form action="/trips/<%=activity.id%>/remove_activity_from_trip" method="GET">
-                    <button type="submit" class='remove-activity-btn'> <input type = "hidden" name="trip_id" value = "<%=@trip.id%>">X</button>
-                    <input type="hidden" name="activity_id" value="<%=activity.id%>">
-                    <%=link_to activity.name, activity.link%>
-                  </form>
-                </li>
-                <% end %>
-              <%end%>
-            </ul>
+          <ul>
+            <% @trip.activities.each do |activity| %>
+            <% if activity.destination_id == destination.id %>
+              <li>
+                <form action="/trips/<%=activity.id%>/remove_activity_from_trip" method="GET">
+                  <button type="submit" class='remove-activity-btn'> <input type = "hidden" name="trip_id" value = "<%=@trip.id%>">X</button>
+                  <input type="hidden" name="activity_id" value="<%=activity.id%>">
+                  <%=link_to activity.name, activity.link%>
+                </form>
+              </li>
+            <% end %>
+            <%end%>
+          </ul>
+        <%end%>
+        <%end%>
+      </ul>
+    <%end%>
+  </div>
+
+      <%if @trip.tags.any?%>
+        Tags: 
+        <ul><% @trip.tags.uniq.each do |tag| %>
+         <li><%= tag.name %></li>
           <%end%>
+        </ul>
+      <%end%>
 
-        <%end%>
-      </ul>
-    <%end%>
     </div>
-
-    <%if @trip.tags.any?%>
-      Tags: 
-      <ul><% @trip.tags.uniq.each do |tag| %>
-       <li><%= tag.name %></li>
-        <%end%>
-      </ul>
-    <%end%>
-
-  
-</div>
 
     <div class="col-md-6">
     <br><br>

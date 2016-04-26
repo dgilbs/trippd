@@ -43,7 +43,7 @@ $(document).on('ready page:load', function(){
     }).success(function(response, settings){
       
       $("#packing-list-" + packing_list_id).append('<li id="item-' + response.id + '"><button class="delete-item-btn">X</button>' + response.name + "</li>")
-      $("#new-item-name-").val(""); 
+      $("#new-item-name").val(""); 
       
     })
     return false;
