@@ -22,37 +22,35 @@
        Itinerary:<br>
         <button class="edit-trip-itinerary-btn">Edit Itinerary</button>
         <ul>
-          <%@trip.destinations.each do |destination|%>
+          <% @trip.destinations.each do |destination| %>
           <li>
             <form action="/destinations/<%=destination.id%>/remove_destination_from_trip" method="DELETE"> 
               <h2>
                 <% if @trip.user == current_user %>
                   <button type="submit" class='remove-destination-btn'> <input type = "hidden" name="trip_id" value = "<%=@trip.id%>">X</button>
                   <input type="hidden" name="destination_id" value="<%=destination.id%>">
-                <% end %><%=link_to destination.city, destination%>
+                <% end %><%= link_to destination.city, destination%>
               </h2>
             </form>
-          </li>
-         
+            
         <% if @trip.activities.any? %>
           Activities:
-          <ul>
-            <% @trip.activities.each do |activity| %>
-            <% if activity.destination_id == destination.id %>
-              <li>
-                <form action="/trips/<%=activity.id%>/remove_activity_from_trip" method="GET">
-                  <button type="submit" class='remove-activity-btn'> <input type = "hidden" name="trip_id" value = "<%=@trip.id%>">X</button>
-                  <input type="hidden" name="activity_id" value="<%=activity.id%>">
-                  <%=link_to activity.name, activity.link%>
-                </form>
-              </li>
-            <% end %>
+            <% @trip.activities.select do |activity| %>
+              <% if activity.destination_id == destination.id %>
+                <li>
+                  <form action="/trips/<%=activity.id%>/remove_activity_from_trip" method="GET">
+                    <button type="submit" class='remove-activity-btn'> <input type = "hidden" name="trip_id" value = "<%=@trip.id%>">X</button>
+                    <input type="hidden" name="activity_id" value="<%=activity.id%>">
+                    <%=link_to activity.name, activity.link%>
+                </li>
+                </form>   
+              <%end%>
             <%end%>
-          </ul>
         <%end%>
-        <%end%>
-      </ul>
+        </li>
     <%end%>
+    </ul>
+    <% end %>
   </div>
 
       <%if @trip.tags.any?%>

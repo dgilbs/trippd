@@ -42,7 +42,9 @@ $(document).on("ready page: load", function(){
       method:"GET",
       data: {activity_id: activity_id}
     }).success(function(response, settings){
-      $("#add_activity_" + response.id).html('<form id="remove_activity_' + response.id + '" action="/trips/' + response.id + '/remove_activity" method="GET" ><button type="submit" class="remove-activity-destination-btn"> X </button><a target="_blank" href="' + response.link + '">' + response.name + '</a><input type="hidden" name="destination_id" value="' + response.destination_id + '"><input type="hidden" name="activity_id" value="' + response.id + '"></form>')
+      $("#activity-" + response.id).addClass('remove-activity-destination-btn').removeClass('add-activity-btn')
+      $("#activity-" + response.id).text("X")
+
     })
   })
 
@@ -56,7 +58,8 @@ $(document).on("ready page: load", function(){
       method: "GET",
       data: {activity_id: activity_id}
     }).success(function(response, settings){
-      $("#add_activity_" + response.id).html('<form id="add_activity_' + response.id + '" action="/destinations/' + response.id + '/add_activity" method="GET" ><button type="submit" class="add-activity-btn"> + </button><a target="_blank" href="' + response.link + '">' + response.name + '</a><input type="hidden" name="destination_id" value="' + response.destination_id + '"><input type="hidden" name="activity_id" value="' + response.id + '"></form>')
+      $("#activity-" + response.id).addClass('add-activity-btn').removeClass('remove-activity-destination-btn')
+      $("#activity-" + response.id).text("+")
 
     })
     return false;
