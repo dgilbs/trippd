@@ -1,4 +1,4 @@
-<%= packing_list.name %><br>
+<h4 id="packing-list-name"><%= packing_list.name %></h4>
 <ul id="packing-list-<%=packing_list.id%>">
 <%packing_list.items.each do |item|%>
 <li id="item-<%=item.id%>"><button class="delete-item-btn">X</button><%=item.name%></li>

@@ -23,7 +23,7 @@ $(document).on('ready page:load', function(){
       var name = response.name
       var id = response.id
       
-      $("#new-packing-list").append('<div class="packing-list-"' + id + '"> <h4>'+ name + '</h4><form id="new-item-form-' + id + '"action="/items" method="POST"><input type="text" id="new-item-name" placeholder="Add an item!"><input type="hidden" id="packing_list_id" name="packing_list_id" value="' + id +'"><input type="submit" class="submit-item-btn"></form><ul id="packing-list-' + id +'"></ul></div>');
+      $("#new-packing-list").append('<div class="packing-list-"' + id + '"> <h4 id="packing-list-name">'+ name + '</h4><form id="new-item-form-' + id + '"action="/items" method="POST"><input type="text" id="new-item-name" placeholder="Add an item!"><input type="hidden" id="packing_list_id" name="packing_list_id" value="' + id +'"><input type="submit" class="submit-item-btn"></form><ul id="packing-list-' + id +'"></ul></div>');
       $("#packing-list-form").hide()
 
     })
@@ -41,8 +41,7 @@ $(document).on('ready page:load', function(){
       method:"POST",
       data: {name: name, packing_list_id: packing_list_id}
     }).success(function(response, settings){
-      
-      $("#packing-list-" + packing_list_id).append('<li id="item-' + response.id + '"><button class="delete-item-btn">X</button>' + response.name + "</li>")
+      $("#packing-list-name").append('<li id="item-' + response.id + '"><button class="delete-item-btn">X</button>' + response.name + "</li>")
       $("#new-item-name").val(""); 
       
     })
