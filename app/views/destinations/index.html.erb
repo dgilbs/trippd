@@ -13,7 +13,7 @@
   <% @destinations.each do |destination_array| %>
     <div class="continent-div col-md-3">
 
-      <h2><%= destination_array.first.country %></h2>
+      <!-- <h2><%= destination_array.first.country %></h2> -->
       <% destination_array.each do |destination| %>
         <button class="trip-btn"><%= link_to destination.city, destination_path(destination)%></button>
       <% end %>
