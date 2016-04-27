@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   private 
 
   def set_analytics
-    if !@trip.nil?
+    if Trip.all.count > 0
       @users = User.all
       @destinations = Destination.all
       @trips = Trip.all
