@@ -1,3 +1,4 @@
+require 'yelp'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -74,6 +75,19 @@ Rails.application.configure do
     :authentication       => "plain",
     :enable_starttls_auto => true
       }
+
+
+  Yelp.client.configure do  |config|
+    config.consumer_key = "GasK1HXJjb__5tlB1KgYaA"
+
+    config.consumer_secret = "aSPtpcKgHIsiT1QHVWBxbXjHb8Q"
+
+    config.token = "8Z4lNEJgzia-TVS7AcUGJSLZccochCtv"
+
+    config.token_secret = "Vpdi_EykhbGXgpVm9rneqUDMZAY"
+
+  end
+
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
