@@ -20,7 +20,6 @@ class DestinationsController < ApplicationController
   end
 
   def index
-  
     if query_params != {}
       query = query_params[:query]
       @search_results = Destination.search(query)
@@ -33,7 +32,6 @@ class DestinationsController < ApplicationController
     asian_cities = Destination.where(continent: "Asia").order_by_city
     australian_cities = Destination.where(continent: "Australia").order_by_city
     @destinations = [north_american_cities, south_american_cities, european_cities, african_cities, asian_cities, australian_cities]
-
   end
 
   def show

@@ -80,7 +80,7 @@ class Trip < ActiveRecord::Base
     self.all.each do |t|
       guests << t.total_guests
     end
-    guests.inject(0){|sum,x| sum + x } / guests.length
+    guests.sum / guests.length
   end
 
   end

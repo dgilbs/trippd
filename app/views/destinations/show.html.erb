@@ -21,15 +21,17 @@
     <%activity_array.each do |activity|%>
         <li id="destination-<%=@destination.id%>"> 
           <% if current_user && current_user.current_trip %>
-          <% if !current_user.current_trip.destinations.include?(@destination) %>
+            <% if !current_user.current_trip.destinations.include?(@destination) %>
             <button id="activity-<%=activity.id%>" class="destination-add-activity"> + </button>
-          <%end%><%end%>
+            <%end%>
+          <%end%>
           <% if current_user && current_user.current_trip %>
           <% if current_user.current_trip.destinations.include?(@destination) && !current_user.current_trip.activities.include?(activity) %>
             <button  id="activity-<%=activity.id%>" class='add-activity-btn'> + </button>
           <%elsif current_user.current_trip.destinations.include?(@destination) && current_user.current_trip.activities.include?(activity) %>
             <button id="activity-<%=activity.id%>" class="remove-activity-destination-btn"> X </button>
-          <% end %><%end%>
+            <% end %>
+          <%end%>
           <%= link_to activity.name, activity.link, :target => '_blank' %>
         </li>      
       <%end%>
