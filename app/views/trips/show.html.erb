@@ -24,7 +24,7 @@
         <ul>
           <% @trip.destinations.each do |destination| %>
           <li>
-            <form action="/destinations/<%=destination.id%>/remove_destination_from_trip" method="GET"> 
+            <form action="/trip_destinations/<%=destination.id%>" method="DELETE"> 
               <h2>
                   <button type="submit" class='remove-destination-btn'> <input type = "hidden" name="trip_id" value = "<%=@trip.id%>">X</button>
                   <input type="hidden" name="destination_id" value="<%=destination.id%>">

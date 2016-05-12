@@ -9,4 +9,15 @@ class TripDestinationsController < ApplicationController
     render json: @destination
   end
 
+  def destroy
+    # binding.pry
+    @destination = Destination.find(params[:destination_id])
+    @trip = Trip.find(current_user.current_trip_id)
+    @trip.destinations.delete(@destination)
+    @trip.delete_dependent_activities(@destination)
+    @trip.save
+
+    render json: @destination
+  end
+
 end

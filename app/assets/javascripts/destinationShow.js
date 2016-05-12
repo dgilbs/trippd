@@ -21,8 +21,8 @@ $(document).on("ready page: load", function(){
     event.preventDefault();
     var destination_id = $("#destination_id").val()
     $.ajax({
-      url: '/destinations/' + destination_id + '/remove_destination',
-      method: "GET",
+      url: '/trip_destinations/' + destination_id,
+      method: "DELETE",
       data: {destination_id: destination_id}
     }).success(function(response, settings){
       $("#toggle-destination").addClass("add-destination-btn").removeClass("remove-trip-destination-btn")
