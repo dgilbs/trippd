@@ -5,11 +5,11 @@
         <span class="glyphicon glyphicon-pencil"></span>
       <%end%><br>
       <% end %></h2> 
-    
       
       <%= @trip.start_date.strftime("%A, %b %d, %Y")%> - <%= @trip.end_date.strftime("%A, %b %d, %Y") %><br>
       Duration: <%= @trip.duration %> days<br>
-        <% if @trip.user == current_user %>
+    
+    <% if @trip.user == current_user %>
  
       <small>Trip created on <%= @trip.created_at.strftime("%A, %d %b %Y")%></small><br>
       <p><br>
@@ -24,12 +24,11 @@
         <ul>
           <% @trip.destinations.each do |destination| %>
           <li>
-            <form action="/destinations/<%=destination.id%>/remove_destination_from_trip" method="DELETE"> 
+            <form action="/destinations/<%=destination.id%>/remove_destination_from_trip" method="GET"> 
               <h2>
-                <% if @trip.user == current_user %>
                   <button type="submit" class='remove-destination-btn'> <input type = "hidden" name="trip_id" value = "<%=@trip.id%>">X</button>
                   <input type="hidden" name="destination_id" value="<%=destination.id%>">
-                <% end %><%= link_to destination.city, destination%>
+                <%= link_to destination.city, destination%>
               </h2>
             </form>
             

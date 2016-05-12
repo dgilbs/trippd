@@ -1,10 +1,12 @@
 <h4 id="packing-list-name"><%= packing_list.name %></h4>
 <ul id="packing-list-<%=packing_list.id%>">
-<%packing_list.items.each do |item|%>
-<li id="item-<%=item.id%>"><button class="delete-item-btn">X</button><%=item.name%></li>
-<%end%>
+  <%packing_list.items.each do |item|%>
+    <li id="item-<%=item.id%>"><button class="delete-item-btn">X</button><%=item.name%></li>
+  <%end%>
 </ul>
+
 <form class="new-item-form" action="/items" method="POST">
-<input type="text" id="new-item-name" placeholder="Add an item!">
-<input type="hidden" id="packing_list_id" name="packing_list_id" value="<%=packing_list.id%>">
-<input type="submit" class="submit-item-btn"></form>
+  <input type="text" id="new-item-name" placeholder="Add an item!">
+  <input type="hidden" id="packing_list_id" name="packing_list_id" value="<%=packing_list.id%>">
+  <input type="submit" class="submit-item-btn">
+</form>

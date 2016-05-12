@@ -91,14 +91,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def all_country_visits
-    if !self.destinations_visited.nil?
-      self.destinations_visited.map do |dest|
-        dest.country
-      end.compact
-    end    
-  end
-
   def cities_visited
     if !self.destinations_visited.nil?
       self.destinations_visited.map do |dest|
@@ -106,6 +98,14 @@ class User < ActiveRecord::Base
       end.compact.uniq
     end
   end
+
+  # def all_country_visits
+  #   if !self.destinations_visited.nil?
+  #     self.destinations_visited.map do |dest|
+  #       dest.country
+  #     end.compact
+  #   end    
+  # end
 
   def countries_visited
     if !self.destinations_visited.nil?
@@ -178,7 +178,7 @@ class User < ActiveRecord::Base
     if budget.empty?
       0
     else
-      budget.sum / budget.length
+      budget.compact.sum / budget.compact.length
     end
   end
 

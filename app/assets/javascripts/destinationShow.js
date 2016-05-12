@@ -20,7 +20,6 @@ $(document).on("ready page: load", function(){
   $(document).on('click', '.remove-trip-destination-btn', function(event){
     event.preventDefault();
     var destination_id = $("#destination_id").val()
-
     $.ajax({
       url: '/destinations/' + destination_id + '/remove_destination',
       method: "GET",
@@ -52,7 +51,7 @@ $(document).on("ready page: load", function(){
     event.preventDefault();
     var destination_id = $(this).parent().attr('id').split("-")[1]
     var activity_id = $(this).attr('id').split("-")[1]
-  
+    debugger
     $.ajax({
       url: '/trips/' + destination_id + '/remove_activity',
       method: "GET",
