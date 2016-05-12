@@ -1,28 +1,6 @@
-== README
+Trip'd is a travel itinerary planning app.  Users can sign up and create "trips" which they can then add destinations and add activities to. Each destination has activities based on user interests - ie "Shopping", "Restaurants", "Fitness", "Cultural", etc. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The application uses the Yelp API to populate activites for each destination. It is a rails app with JavaScript/JQuery incorporated.
 
-Things you may want to cover:
+Built by Mallory Coppenrath, Daniel Gilberg, Joe Lehr, and Greta Moseson.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.

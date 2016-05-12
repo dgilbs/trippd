@@ -186,10 +186,5 @@ class User < ActiveRecord::Base
     self.countries_visited.length > 10
   end
 
- 
-
-  # def city_hopper
-
-  # end
 
 end

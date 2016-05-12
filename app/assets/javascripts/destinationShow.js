@@ -6,8 +6,8 @@ $(document).on("ready page: load", function(){
     var destination_id = $("#destination_id").val();
 
     $.ajax({
-      url: '/destinations/' + destination_id + '/add_destination',
-      method: "GET",
+      url: '/trip_destinations',
+      method: "POST",
       data: {id: destination_id}
     }).success(function(response, settings){
       $("#toggle-destination").addClass("remove-trip-destination-btn").removeClass('add-destination-btn')
