@@ -66,6 +66,7 @@ class TripsController < ApplicationController
     @trip.destroy
     @user.reset_current_trip
     @user.save
+    
     redirect_to trips_path
   end
 
@@ -75,31 +76,6 @@ class TripsController < ApplicationController
     @sender = params[:sender]
     ExampleMailer.trip_email(@email, @trip, @sender).deliver_now
     render json: {msg: "success!"}
-  end
-
-  def add_activity
-    @destination = Destination.find(params[:id])
-    @trip = Trip.find(current_user.current_trip_id)
-    @activity = Activity.find(params[:activity_id])
-    @trip.activities << @activity if !(@trip.activities.include?(@activity))
-    @trip.save
-    render json: @activity
-  end
-
-  def remove_activity
-    @activity = Activity.find(params[:activity_id])
-    @trip = Trip.find(current_user.current_trip_id)
-    @trip.activities.delete(@activity)
-    @trip.save
-    render json: @activity
-  end
-
-  def remove_activity_from_trip
-    @activity = Activity.find(params[:activity_id])
-    @trip = Trip.find(current_user.current_trip_id)
-    @trip.activities.delete(@activity)
-    @trip.save
-    redirect_to @trip
   end
 
   private

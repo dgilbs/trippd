@@ -37,9 +37,9 @@ $(document).on("ready page: load", function(){
     var destination_id = $(this).parent().attr('id').split("-")[1]
     var activity_id = $(this).attr('id').split("-")[1]
     $.ajax({
-      url: '/destinations/' + destination_id + '/add_activity',
+      url: '/trip_activities',
       method:"GET",
-      data: {activity_id: activity_id}
+      data: {activity_id: activity_id, destination_id: destination_id}
     }).success(function(response, settings){
       $("#activity-" + response.id).addClass('remove-activity-destination-btn').removeClass('add-activity-btn')
       $("#activity-" + response.id).text("X")
@@ -51,9 +51,8 @@ $(document).on("ready page: load", function(){
     event.preventDefault();
     var destination_id = $(this).parent().attr('id').split("-")[1]
     var activity_id = $(this).attr('id').split("-")[1]
-    debugger
     $.ajax({
-      url: '/trips/' + destination_id + '/remove_activity',
+      url: '/trip_activities/' + destination_id,
       method: "GET",
       data: {activity_id: activity_id}
     }).success(function(response, settings){
