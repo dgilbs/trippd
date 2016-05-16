@@ -38,7 +38,7 @@ $(document).on("ready page: load", function(){
     var activity_id = $(this).attr('id').split("-")[1]
     $.ajax({
       url: '/trip_activities',
-      method:"GET",
+      method:"POST",
       data: {activity_id: activity_id, destination_id: destination_id}
     }).success(function(response, settings){
       $("#activity-" + response.id).addClass('remove-activity-destination-btn').removeClass('add-activity-btn')
