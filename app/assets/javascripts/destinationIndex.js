@@ -2,7 +2,6 @@ $(document).on('ready page:load', function(){
   $('.search-destination-btn').click(function(e){
     e.preventDefault();
     var query = $('.search-terms').val();
-    debugger
     $.ajax({
       url: '/destinations',
       method: 'POST',

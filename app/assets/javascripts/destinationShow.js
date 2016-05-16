@@ -21,7 +21,7 @@ $(document).on("ready page: load", function(){
     event.preventDefault();
     var destination_id = $("#destination_id").val()
     $.ajax({
-      url: '/destinations/' + destination_id + '/remove_destination',
+      url: '/trip_destinations/' + destination_id,
       method: "GET",
       data: {destination_id: destination_id}
     }).success(function(response, settings){
@@ -71,6 +71,5 @@ $(document).on("ready page: load", function(){
 
 
 })
-
 
 
