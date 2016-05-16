@@ -86,15 +86,6 @@ class TripsController < ApplicationController
     render json: @activity
   end
 
-  # def remove_destination
-  #   @destination = Destination.find(params[:destination_id])
-  #   @trip = Trip.find(current_user.current_trip_id)
-  #   @trip.destinations.delete(@destination)
-  #   @trip.delete_dependent_activities(@destination)
-  #   @trip.save
-  #   render json: @destination
-  # end
-
   def remove_activity
     @activity = Activity.find(params[:activity_id])
     @trip = Trip.find(current_user.current_trip_id)
@@ -102,15 +93,6 @@ class TripsController < ApplicationController
     @trip.save
     render json: @activity
   end
-
-  # def remove_destination_from_trip
-  #   @destination = Destination.find(params[:destination_id])
-  #   @trip = Trip.find(current_user.current_trip_id)
-  #   @trip.destinations.delete(@destination)
-  #   @trip.delete_dependent_activities(@destination)
-  #   @trip.save
-  #   redirect_to @trip
-  # end
 
   def remove_activity_from_trip
     @activity = Activity.find(params[:activity_id])
